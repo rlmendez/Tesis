@@ -218,16 +218,16 @@ NOTA: PALABRAS DE PRESENTACION
 EN FORMULACION ES MAS VIABLE NOMBRAS LA ARQ MULTI PARTITA
 
 \subsection{Formulación del Problema}
-¿Existirá una relación directa entre los posibles focos de contaminación atmosférica dadas por la Red de Monitoreo de Calidad del Aire de Bogotá con las enfermedades respiratorias registradas en el Hospital del Sur y el Sistema Nacional de Vigilancia en Salud Pública? De tal manera también ¿ Comó se garantizará la integridad, privacidad y seguridad durante la comunicación entre los datasets?
+¿Existirá una relación directa entre los posibles focos de contaminación atmosférica dadas por la Red de Monitoreo de Calidad del Aire de Bogotá con las enfermedades respiratorias registradas en el Hospital del Sur y el Sistema Nacional de Vigilancia en Salud Pública? De tal manera ¿ comó se garantizará la integridad, privacidad y seguridad durante la comunicación entre los datasets?
 
 
 
 
 \subsection{Justificación}
- NOMBRAR EL PROPOSITO DE OPTAR AL TITULO DE ING SISTEMA
+ NOMBRAR EL PROPOSITO DE OPTAR AL TITULO DE ING SISTEMA.?
 
 
-Pekín, capital de China deafortunadamente es referente como la ciudad con el aire menos apto para respirar del mundo, lo que ha causado que el gobierno chino emita una alerta roja donde sugirió no hacer actividades al aire libre ('Calidad del aire de Bogotá tuvo niveles similares a los de Pekín' El Tiempo  4 de febrero de 2016). Bogotá en los últimos años por el crecimiento acelerado en la industria automotriz 16\% anual en los últimos años (Industria automotriz en Bogotá sigue creciendo El Espectador 18 de Enero 2012) y de manera paralela a la industria ha causado un aumentó considerable de emisión de gases de efecto al ambiente.
+Pekín, capital de China deafortunadamente es referente como la ciudad con el aire menos apto para respirar del mundo, ha causado que el gobierno chino emita una alerta roja donde sugirió no hacer actividades al aire libre ('Calidad del aire de Bogotá tuvo niveles similares a los de Pekín' El Tiempo  4 de febrero de 2016). Bogotá en los últimos años por el crecimiento acelerado en la industria automotriz 16\% anual en los últimos años (Industria automotriz en Bogotá sigue creciendo El Espectador 18 de Enero 2012) y de manera paralela a la industria ha causado un aumentó considerable de emisión de gases de efecto al ambiente.
 
 Actualmente y debido a la alta contaminación que se ha producido  durante los últimos años ya se ha recomendado a los capitalinos, que los niños menores de 5 años utilicen tapabocas y / o se encuentre en lugares "limpios" sin que los adultos tomen también la medida ('Calidad del aire de Bogotá tuvo niveles similares a los de Pekín' El Tiempo  4 de febrero de 2016). De esta manera con el datasets de registros RIPS del Hospital del Sur (Bogotá) a través de un proceso de ETL se puede determinar aquellos vinculados a IRA (Infecciones Respiratorias Agudas) y de esta manera relacionar los datos con datasets de otros orígenes como el RMCAB y SIVIGILA, sin olvidar que los datos se deben manejar de manera confidencial y segura cuando se realice la minería de datos.
 
@@ -256,6 +256,7 @@ De esta manera poder aportar resultados importante para tomar medidas en la pol�
 \end{itemize}
 
 \subsection{Alcance y Limitaciones del Proyecto}
+
 Dentro del proceso de vincular las bases de datos de manera anónima cada una independiente. Se relacionaran los datos relevantes de cada dataset para poder realizar un proceso de ETL, ya que la información inicial no es confiable y se encontrará desorganizada, de tal manera que el ETL se hará a través según la selección de las columnas para el diseño de una bodega de datos y poder realizar un filtro inicial de información. La estructura de la bodega, se dará a partir de cada dataset y el algoritmo que se determine después de entender las bases a través de diagramas de entidad relación.
 
 El proceso de ETL se realizará con base a scripts realizados en Python, para poder exportar dichos datos en un archivo plano a una base de datos en Postergel de manera local y remota. Se diseñara un algoritmo flexible a realizar un proceso ETL express a información nueva que se vaya recibiendo de las fuentes públicas para ir aumentando los datos en la base.
@@ -280,10 +281,6 @@ Para el desarrollo de este trabajo se definiran que tipos de datos y atributos s
 Es por esto que tanto los(RIPS,SIVIGILA,RMCAB) y demas entes que permitieron la recopilación de esta información seran de vital importancia para toda la investigación llevada a cabo.En cuanto a la contaminación en el aire como principal eje de este factor de riesgo ambiental es analizado tanto globalmentey que impactos tiene como localmente (Bogotá D.C)
 
 Cabe afirmar que unos de los efectos que generan gran impacto a nivel local son  la combustión y efectos de cambio climatico, por esto  gran parte de la ciudad adelantan campañas con las cuales promueven la mejora de la calidad del aire que con el tiempo sera vital.
-
-
-
-
 
 
 \subsection{Antecedentes o Estado del Arte}
@@ -321,9 +318,12 @@ La ubicación de las estaciones se determino por la distribución de industrial 
 Para la vinculación de la contaminación dada en la ciudad de Bogotá, se debe tener en cuenta que es un causante determinante en las enfermedades respiratorias agudas ya que este tipo de infección es una de las principales causas de morbilidad y mortalidad (entre infantes menores a 5 años y personas de la tercera edad) (Influencia de la variabilidad climática en las enfermedades respiratorias agudas en Bogotá) con el agravante de ser una de las diez primeras causas de muerte en nuestro paìs (Influencia de la variabilidad climática en las enfermedades respiratorias agudas en Bogotá 
 ). De esta manera la búsqueda de relaciones directas entre las IRA y la información dada en los RMCAB será primordial para respaldar los estudios previos que se han hecho de manera individual. 
 
+
 Igualmente con las variables que toma la RMCAB para realizar los análisis, se entiende que se recomienda el fortalecimiento del sistema para alertas tempranas enfocadas a la salud, por sugerencia del Intergovernmental Panel on Climate Change (IPCC) (Influencia de la variabilidad climática en las enfermedades respiratorias agudas en Bogotá). Ya que dentro de las polìticas que se deben establecer para el manejo de la contaminación ambiental referente a la salud pública, se basará a partir de los estudios realizados en los últimos años por la academia como fue en la Universidad de Los Andes donde se indafa sobre la influencia del clima en las IRA.
 
+Ya desde el punto de seguridad informatica aplicada al estudio de investigación, se plantea una comunicación entre las partes sin tener en cuenta el costo computacional simulando bases de datos privadas y públicas (Efficient and verifiable algorithms for secure outsourcing of cryptographic computations pag 2), en el caso de la investigación cada datasets será clasificada como privada para realizar un proceso ETL y de esta manera diseñar una base de datos público para realizar la minería de datos. La inserción de los datos entre los datos para el procesamiento computacional se realizará entre las partes con datos encriptados (Efficient and verifiable algorithms for secure outsourcing of cryptographic computations pag 4).
 
+De esta manera se diseñara una arquitectura flexible basado en la conversión de compartir secretos de las bases de datos privadas para realizar la minería de datos en una base pública, donde se tendrá en cuenta el nivel de complejidad de los datos a extraer de cada dataset según el número de participantes, de esta manera los datos extraidos serán catalogados como partes de secretos de su origen (Multi-party computation with conversion of secret sharing).
 
 \subsection{Marco Legal}
 
