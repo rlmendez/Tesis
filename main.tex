@@ -246,12 +246,11 @@ De esta manera poder aportar resultados importante para tomar medidas en la pol�
 \subsubsection{Objetivos Específicos}
 \begin{itemize}
 \item Determinar cuales son los datos relevantes requeridos para la investigación.
-\item Realizar un proceso ETL (Extract Transform Load) a cada uno de los datasets y actualizar los datos a traves de una base de datos.
+\item Realizar un proceso ETL (Extract Transform Load) a cada uno de los datasets y actualizar los datos a través de una base de datos.
 \item Diseñar la arquitectura multi - partita computacional flexible para aplicar minería de datos.
 \item Plantear los algoritmos para realizar la minería de datos compatible a la arquitectura.
-\item Aplicar los algoritmos de minería de datos a los datasets sin y con arquitectura multipartita computacional.
+\item Aplicar los algoritmos de minería de datos definidos a los datasets sin y con arquitectura multipartita computacional.
 \item Interpretar los resultados dados en los procesos de datamining.
-\item Comparar los resultados entre la minería aplicada en la arquitectura multi - partita contra los datasets sin arquitectura.
 
 \end{itemize}
 
@@ -391,14 +390,29 @@ vinculan las metodologías de desarrollo de software elegidas cuando son proyect
 
 \begin{center}
 
-\begin{tabular}{l p{4cm} l p{4cm} l p{2cm} l p{2cm} l p{2cm} c p{2cm} c p{2cm} }
+\begin{tabular}{p{4cm} p{4cm} p{4cm} p{4cm} p{3cm} p{2cm} p{2cm} }
 \toprule
-\rowcolor[gray]{0.9}Objetivo específico & Descripción & Dependencias & Recursos  & Producto &
-Inicio & Final \\
+\rowcolor[gray]{0.8}Objetivo específico & Descripción & Dependencias & Recursos  & Producto &
+Fecha Inicial & Fecha Final \\
 \midrule
-Objetivo 0 & descripción 0 & depende de & recursos & se obtiene & semana 0 & semana 1 \\
+Determinar los datos relevantes requeridos para la investigación. & De los datasets SIVIGILA, RIPS y RMCAB & Entender la estrucrura de cada datasets, la relación entre los datos y las variables. & Computadores, herramientas para diseño de base de datos & Estructura de cada dataset & semana 0 & semana 1 \\
 \midrule
-Objetivo 1 & descripción 1 & depende de & recursos & se obtiene & semana 2 & semana 3 \\
+Realizar un proceso ETL a cada uno de los datasets & Se realizara un proceso de extracción, transformación y carga a las bases de datos & Definición de las variables requeridos de cada dataset & Computadores & Una base de datos con datos limpios & semana 2 & semana 3 \\
+\midrule
+Diseñar la arquitectura multi - partita computacional & Se diseñara una comunicación entre las bases de datos privadas y la pública (datos después de ETL) & Conceptos de arquitectura multi partita según investigaciones & Computadores, herramienta para diseños de arquitecturas computacionales & Una arquitectura multi partita computacional definida & semana 2 & semana 3 \\
+
+\midrule
+Plantear los algoritmos para realizar la minería de datos & Con los diferentes tipos de algoritmos para minería de datos se determinara los más aptos según los datos extraídos anteriormente & Tipos de datos extraídos en el proceso ETL & Computadores & Definición de los algoritmos para aplicar & semana 2 & semana 3 \\
+
+\midrule
+Aplicar los algoritmos de minería de datos definidos a los datasets & Con los algoritmos y conceptos definidos para la minería de datos, se aplicaran a los datos de la base de datos pública. & Definición de los algoritmos & Computadores, RapidMiner & Análisis de los datos & semana 2 & semana 3 \\
+
+\midrule
+Aplicar los algoritmos de minería de datos definidos a los datasets & Con los algoritmos y conceptos definidos para la minería de datos, se aplicaran a los datos de la base de datos pública. & Definición de los algoritmos & Computadores, RapidMiner & Análisis de los datos & semana 2 & semana 3 \\
+
+\midrule
+Interpretar los resultados & Aplicada la minería de datos a la base de datos pública, se analizarán los resultados de la misma & Resultados según los algoritmos aplicados & Computadores & Interpretaciones de los resultados & semana 2 & semana 3 \\
+
 \bottomrule
 \end{tabular}
 
