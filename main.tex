@@ -357,29 +357,83 @@ La investigación se regirá bajo tres pilares que serán Salud Pública con én
 \begin{center}
 \section{Metodología}
 \end{center}
-Debe mostrar, en forma organizada, y precisa, cómo serán alcanzados cada uno de los objetivos
-específicos propuestos. Deben detallarse, los procedimientos, técnicas, instrumentos, actividades,
-etapas y demás estrategias metodológicas requeridas para el proyecto.  Tenga en cuenta que el
-diseño metodológico es la base para planificar todas las actividades que demanda el proyecto y para
-determinar los recursos humanos y financieros requeridos.
 
-Un esquema útil puede ser:
 \begin{enumerate}
-  \item Un objetivo específico
-  \begin{enumerate}
-    \item se alcanza a través de unas etapas
+  \item Determinar cuales son los datos relevantes requeridos para la investigación.
     \begin{enumerate}
-      \item que incluyen unos procedimientos
+      \item Entender la estructura de cada dataset.
       \begin{itemize}
-        \item que usan técnicas
-        \item ... e instrumentos
+        \item Plantear la estructura en una herramienta de 			diseño de base de datos.
+        \item Revisar las posibles relaciones entre los tres 		 datasets.
+        \item Comprender el comportamiento de las variables en         cada dataset.
       \end{itemize}
-    \end{enumerate}
   \end{enumerate}
+  \item Realizar un proceso ETL (Extract Transform Load) a 	      cada uno de los datasets y actualizar los datos a través 	    de una base de datos.
+  	\begin{enumerate}
+      \item Extraer los datos definidos.
+      \begin{itemize}
+        \item Programar scripts para extracción de los datos           según el dataset.
+        \item Ejecutar los scripts programados a cada dataset.
+        \item Revisar los datos extraídos.
+        \item Corregir posibles errores de extracción.
+      \end{itemize}
+      \item Hacer las transformaciones a los datos según lo         requerido en la investigación.
+      \begin{itemize}
+      	\item Definir que trasnformaciones se requieren               aplicar a los datos extraídos.
+        \item Programar scripts para la transformación de los         datos según el dataset.
+        \item Ejecutar los scripts programados a los datos             extraídos.
+        \item Revisar los resultados de la transformación.
+        \item Corregir posibles errores de extracción.
+      \end{itemize}
+      \item Hacer la carga de los datos a la base de datos           pública.
+      \begin{itemize}
+        \item Programar scripts para la carga de los datos              según el dataset.
+        \item Ejecutar los scripts programados a los dato.
+        \item Verificar los datos cargados en la base de               datos.
+        \item Corregir posibles errores.
+      \end{itemize}
+  \end{enumerate}
+   \item Diseñar la arquitectura multi - partita computacional     flexible para aplicar minería de datos.
+   \begin{enumerate}
+      \item Conceptualizar la arquitectura multi partita computacional.
+      \begin{itemize}
+        \item Encontrar la literatura en investigación más             apta para el proyecto.
+        \item Adaptar el concepto de la arquitectura nombrada         para el caso de investigación.
+      \end{itemize}
+      \item Plantear la arquitectura mencionada.
+      \begin{itemize}
+        \item Representar la arquitectura en las herramientas         para modelamiento de arquitecturas computacionales.
+      \end{itemize}
+  \end{enumerate}
+  \item Plantear los algoritmos para realizar la minería de datos compatible a la arquitectura.
+    \begin{enumerate}
+      \item Encontrar  los tipos de algoritmos que se pueden aplicar según los datos que se obtengan en el proceso ETL.
+      \begin{itemize}
+        \item Buscar los algoritmos pertinentes para saber las ventajas y desventajas frente a la investigación.
+      \end{itemize}
+  \end{enumerate}
+ \item Aplicar los algoritmos de minería de datos definidos a los datasets sin y con arquitectura multipartita computacional.
+    \begin{enumerate}
+      \item Utilizando la herramienta RapidMiner aplicar a los datos de la base de datos públicas.
+      \begin{itemize}
+        \item Exportar los datos de la base de datos pública a un formato que lea RapidMiner.
+        \item Programar en RapidMiner los algoritmos a aplicar.
+        \item Ejecutar el diseño planteado de los algoritmos.
+      \end{itemize}
+  \end{enumerate}
+ \item Interpretar los resultados dados en los procesos de datamining.
+    \begin{enumerate}
+      \item Analizar los resultados dados en RapidMiner.
+      \begin{itemize}
+        \item Exportar los resultados en un formato determinado para próximas lecturas.
+        \item Aplicar posibles técnicas estadísticas.
+        \item Plantear de manera objetiva los resultados de una manera explíita para entender los resultados dados.
+      \end{itemize}
+  \end{enumerate}
+  
+  
 \end{enumerate}
 
-Tuve la oportunidad de ver algunos trabajos radicados oficialmente, en esta parte dichos trabajos
-vinculan las metodologías de desarrollo de software elegidas cuando son proyectos de desarrollo.
 \clearpage
 
 \begin{sidewaystable}
