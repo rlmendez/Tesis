@@ -166,22 +166,25 @@
  \section{RESUMEN}
  \end{center}
  
-Los datos e información en la actualidad son un recurso vital para todos los procesos que se llevan en la sociedad, ya que los datos son la recopilación de hechos que suceden en todos los ámbitos de la vida cotidiana. En el caso de la investigación es importante la protección e integridad de los datos de los entes públicos y privados. Pero ¿ qué sucedería, sin importar el origen de la información, si pudiera realizar un análisis de los datos de diferentes proveedores para encontrar relaciones o agrupamientos preservando la integridad y protegiendo la información cada proveedor?
+Los datos e información en la actualidad son un recurso vital para todos los procesos que se llevan hoy en la sociedad ya que los datos son la recopilación de hechos que suceden en todos los ámbitos de la vida cotidiana. En el caso de la investigación es importante la protección e integridad de los datos tanto de organismos públicos como privados. Pero ¿ qué sucedería, sin importar el origen de la información, si pudiera realizar un análisis de los datos de diferentes proveedores para encontrar relaciones o agrupamientos preservando la integridad y protegiendo la información cada proveedor?
 
-El propósito de esta investigación es plantear y aplicar una arquitectura computacional segura que permita realizar procesos de análisis de datos de diferentes proveedores de información de forma privada (anónima), para encontrar resultados que se  hallarían solamente de manera colaborativa entre los proveedores. Pare este fin, se realizará un proceso de protección de los datos de cada proveedor a través de procesos de cifrado para poder realizar un análisis de manera global de información particular. 
+El propósito de esta investigación es plantear y aplicar una arquitectura computacional segura que permita realizar procesos de análisis de datos de diferentes proveedores de información de forma privada (anónima), para encontrar resultados que se  hallarían solamente de manera colaborativa entre los proveedores de información.Se realizará un proceso de protección de los datos de cada proveedor a través de procesos de cifrado con el fin de poder realizar un análisis de manera global de información particular. 
 
-De esta manera, el planteamiento de la arquitectura computacional segura se validará a través de tres bases de datos de diferentes proveedores de información, para este caso, de instituciones públicas: el Hospital del sur, la Secretaría de Ambiente de Bogotá y el Instituto Nacional de Salud.
+El planteamiento de la arquitectura computacional segura se validará a través de tres bases de datos de diferentes proveedores de información, para este caso, de instituciones públicas: el Hospital del sur, la Secretaría de Ambiente de Bogotá y el Instituto Nacional de Salud.
+
+Palabras clave: Arquitectura multi-partita, mienría de datos, encriptación, seguridad informatica.
+
  \clearpage
  
 \begin{center}
  \section{INTRODUCCIÓN}
  \end{center}
  
- Los datos para cada persona u organización son un recurso importante para tomar decisiones, pero  en ocasiones se desea encontrar información que solamente se puede hallar con la colaboración conjunta de diferentes fuentes de información. La privacidad e integridad de los datos de cada proveedor de información se debe preservar en este proceso de compartir los datos para evitar fugas o escape de información delicada o confidencial. De esta manera se planteará y probará en la investigación una arquitectura computacional segura para realizar minería de datos con tres proveedores de información diferentes.
+ Los datos para cada persona u organización son un recurso importante para tomar decisiones, pero  en ocasiones se desea encontrar información que solamente se puede hallar con la colaboración conjunta de diferentes fuentes de información. La privacidad e integridad de los datos de cada proveedor de información se debe preservar en este proceso de compartir los datos para evitar fugas o escape de información delicada o confidencial.Se planteará y probará en la investigación una arquitectura computacional segura para realizar minería de datos con tres proveedores de información diferentes.
 
-Se realizará un proceso de encriptación a cada base de datos privada a través de tecnologías de criptografía con el lenguaje de programación Python. Esto permitirá extraer los datos a una base de datos pública donde se realizará un proceso ETL (extracción, transformación y carga) para poder aplicar la técnica de agrupamiento de minería de datos con el fin de dividir los datos en grupos de objetos. Los métodos de agrupamiento no paramétricos pueden dividirse en tres grupos fundamentales: jerárquicos [1-4], particionales [1] y basados en densidad [5-9].
+Se realizará un proceso de cifrado a cada base de datos privada a través de tecnologías de criptografía con el lenguaje de programación Python. Esto permitirá extraer los datos a una base de datos pública donde se realizará un proceso ETL (extracción, transformación y carga) para poder aplicar la técnica de agrupamiento de minería de datos con el fin de dividir los datos en grupos de objetos. Los métodos de agrupamiento no paramétricos pueden dividirse en tres grupos fundamentales: jerárquicos [1-4], particionales [1] y basados en densidad [5-9].
 
-La arquitectura computacional segura propuesta se implementará en las tres bases de datos de prueba: RIPS (Hospital del Sur Bogotá), Red Monitoreo de Calidad de Aire de Bogotá (Secretaría de Ambiente de Bogotá) y el SIVIGILA (Instituto Nacional de Salud) para encontrar una relación entre los datos y definir un agrupamiento según las enfermedades de infecciones respiratorias agudas con los registros de contaminación del aire, todo esto sin exponer el origen de cada dato.
+La arquitectura computacional segura propuesta se implementará en las tres bases de datos de prueba: RIPS (Hospital del Sur Bogotá), Red Monitoreo de Calidad de Aire de Bogotá (Secretaría de Ambiente de Bogotá) y el SIVIGILA (Instituto Nacional de Salud) para encontrar una correlación entre los datos y definir un agrupamiento según las enfermedades de infecciones respiratorias agudas con los registros de contaminación del aire, todo esto sin exponer el origen de cada dato.
 
 \clearpage
 
@@ -191,32 +194,32 @@ La arquitectura computacional segura propuesta se implementará en las tres base
 
 \subsection{DESCRIPCIÓN DEL PROBLEMA}
 
-Las recientes emergencias por infección respiratoria aguda en el mundo han generado la necesidad de reconocer la importancia de fortalecer la estructura y los procesos de vigilancia de la infección respiratoria
+Las emergencias por infección respiratoria aguda en el mundo han generado la necesidad de reconocer la importancia de fortalecer la estructura y los procesos de vigilancia de la infección respiratoria
 aguda (IRA). Una de las recomendaciones internacionales es la de consolidar la vigilancia sobre este conjunto de enfermedades con un reglamento sanitario, pero a través de estrategias que garanticen una oportuna detección y prevención de estos tipos de emergencias.
 
-En Colombia aunque se ha realizado seguimiento y notificación de las infecciones respiratorias agudas, se presentan limitaciones de las entidades responsables del sector de salud y ambiental. Entre estas está la dificultad para acceder a la información de cada entidad, ya por procesos burocráticos o razones de confidencialidad, lo que puede dificultar la detección temprana de morbi-mortalidad causado por diferentes agentes etiológicos.
+Aunque en Colombia se ha realizado seguimiento y notificación de las infecciones respiratorias agudas, se presentan limitaciones de las entidades responsables del sector de salud y ambiental. Entre estas está la dificultad para acceder a la información de cada entidad, ya por procesos burocráticos o razones de confidencialidad, lo que puede dificultar la detección temprana de morbi-mortalidad causado por diferentes agentes etiológicos.
 
-Una estrategia para poder detectar cifras o patrones de morbi-mortalidad de manera más acertada y anticipada es poder acceder a la información de diferentes fuentes, ya que el acceso a los datos podría estar limitado por cada una de estos. Debido a la complejidad y a lo delicado que es manejar esta información, por la cantidad de datos que se encuentran en cada uno de ellos, es importante encontrar un mecanismo tecnológico con el cual se puedan proteger la integridad de cada uno de los datos suministrados por parte de los entes o instituciones publico-privadas.
+Una estrategia para poder detectar cifras o patrones de morbi-mortalidad de manera más acertada y anticipada es poder acceder a la información de diferentes fuentes, ya que el acceso a los datos podría estar limitado por cada una de estos. Debido a la complejidad y a lo delicado que es manejar esta información, por la cantidad de datos que se encuentran en cada uno de ellos, es importante encontrar un mecanismo tecnológico con el cual se pueda mantener la confidencialidad de la información de cada uno de los datos suministrados por parte de los entes o instituciones publico-privadas.
 
-Existen casos en los que los diferentes métodos de compartir información han causado intentos fallidos y exitosos por protegerlos; uno de estos casos fallidos sucedió en la ciudad de New York en el año 2014, cuando se recopiló la información de todos los taxistas de la ciudad por parte de la alcaldía neoyorkina. Pero una falla en el proceso de encriptación MD5 permitió que personas ajenas recuperaran información personal de los taxistas de alrededor de 173 millones de viajes realizados [10], dejando en evidencia sus datos personales y las rutas con sus clientes frecuentes,  perjudicando así su privacidad. Si esta información la obtuvieran grupos criminales podrían dar seguimiento a taxistas y pasajeros.
+Existen casos en los que los diferentes métodos de compartir información han causado intentos fallidos y exitosos por protegerlos; uno de estos casos fallidos sucedió en la ciudad de New York en el año 2014, cuando se recopiló la información de todos los taxistas de la ciudad por parte de la alcaldía neoyorkina. Pero una falla en el proceso de cifrado MD5 permitió que personas ajenas recuperaran información personal de los taxistas de alrededor de 173 millones de viajes realizados [10], dejando en evidencia sus datos personales y las rutas con sus clientes frecuentes,  perjudicando así su privacidad. Si esta información la obtuvieran grupos criminales podrían dar seguimiento a taxistas y pasajeros.
 
 Un caso exitoso fue el de Netflix, cuando en el año 2006 logró anonimizar la información de más de 500.000 millones de clientes junto a las preferencias de los mismos, mostrando un grado de nivel alto de seguridad y preservación de la integridad de los datos [11].
 
-Aprendiendo de los casos nombrados, se buscará una solución computacional con la combinación de  diferentes técnicas tecnológicas para poder compartir información entre diferentes entidades. En el caso de la investigación se diseñara un mecanismo para compartir información preservando y protegiendo los datos de los proveedores de prueba. 
+Se buscará una solución computacional con la combinación de diferentes técnicas con las cuales sean importante  para poder compartir información entre diferentes entidades. En el caso de la investigación se diseñara un mecanismo para compartir información preservando y protegiendo los datos de los proveedores de prueba. 
 
 \subsection{FORMULACIÓN DEL PROBLEMA}
 
-¿Qué mecanismo tecnológico se puede aplicar para compartir información de manera segura, anónima y transparente entre las diferentes entidades como es el Hospital del Sur, Instituto Nacional de Salud y la Red de Monitoreo de Calidad del Aire de Bogotá?
+¿Qué mecanismo tecnológico se puede aplicar para compartir información de manera segura y anónima entre las diferentes entidades con las que se trabajará en dicha investigación ?
 
 \subsection{JUSTIFICACION}
 
-Teniendo en cuenta la problemática y para  poder encontrar una correlación entre los eventos registrados en el Hospital del Sur referente a las infecciones respiratorias agudas, con los hechos meteorológicos y atmosféricos de las tres estaciones de la Red de Monitoreo de Calidad de Aire de Bogotá, se tendrá en cuenta que la información del Hospital del Sur, por ser médica, debe ser protegida contra procesos o eventos que puedan perjudicar a los pacientes u hospital, por fugas de datos confidenciales. 
+Teniendo en cuenta la problemática y para  poder encontrar una correlación entre los eventos registrados en el Hospital del Sur referente a las infecciones respiratorias agudas, con los hechos meteorológicos y atmosféricos de las tres estaciones de la Red de Monitoreo de Calidad de Aire de Bogotá, se tendrá en cuenta que la información del Hospital del Sur, por ser de caracter médica, debe ser protegida contra procesos o eventos que puedan perjudicar a los pacientes u hospital, por fugas de datos confidenciales. 
 
-Para la investigación, la base de datos privada (RIPS) del Hospital del Sur será la relevante para proteger su información. Dentro de los procesos internos del hospital, solo se expone al público datos que no son importantes ni sensibles. En el proceso de compartir información con otras bases de datos se sigue el alineamiento de no exponer información confidencial, ya que los datos deben ser anónimos, sin olvidar la integridad original de los registros hospitalarios.
+Para las base de datos privada (RIPS) del Hospital del Sur será la relevante para proteger su información. Dentro de los procesos internos del hospital, solo se expone al público datos que no son importantes ni sensibles. En el proceso de compartir información con otras bases de datos se sigue el alineamiento de no exponer información confidencial, ya que los datos deben ser anónimos, sin olvidar la integridad original de los registros hospitalarios.
 
-Con lo dicho anteriormente, se tiene en cuenta que las bases de datos de la Secretaría de Ambiente de Bogotá y el Instituto Nacional de Salud no será primordial el anonimato de los datos, sino la integridad de la información, puesto que en estas bases de datos no existe información médica sensible para cohibir su publicación, pero sin que ningún evento corrompa los datos originales. En el proceso de compartir información entre las tres entidades, se tendrá relevancia en la integridad de la información de cada, pero protegiendo la exposición pública de datos registrados en el Hospital del Sur.
+Se tiene en cuenta que las bases de datos de la Secretaría de Ambiente de Bogotá y el Instituto Nacional de Salud no será primordial el anonimato de los datos, sino la integridad de la información, puesto que en estas bases de datos no existe información médica sensible para cohibir su publicación, pero sin que ningún evento corrompa los datos originales. En el proceso de compartir información entre las tres entidades, se tendrá relevancia en la integridad de la información de cada, pero protegiendo la exposición pública de datos registrados en el Hospital del Sur.
 
-Para la protección del anonimato e integridad de la información, se definirá cada entidad como un proveedor privado, los cuales expondrán parte de los datos en una base pública para un proceso de minería futuro, teniendo en cuenta que aquella información no deberá permitir la identificación de su origen ni afectar las bases de datos originales en caso de corrupción en la información expuesta públicamente.
+Para la proteger el anonimato e integridad de la información, se definirá cada entidad como un proveedor privado, los cuales expondrán parte de los datos en una base pública para un proceso de minería futuro, teniendo en cuenta que aquella información no deberá permitir la identificación de su origen ni afectar las bases de datos originales en caso de corrupción en la información expuesta públicamente.
 
 Se diseñará una arquitectura computacional segura, que permita el proceso colaborativo de las tres entidades, para poder realizar una exposición de información de cada una, preservando los datos originales de manera segura y anónima.
 
@@ -233,7 +236,7 @@ Además un aporte al desarrollo del proyecto para la facultad de Ingeniería de 
 
 \subsubsection{Objetivos Específicos}
 \begin{itemize}
-\item Elaborar una arquitectura computacional segura y adecuada, basada en los diferentes mecanismos de seguridad para el intercambio de información entre los diferentes proveedores de información.
+\item Diseñar una arquitectura computacional segura y adecuada, basada en los diferentes mecanismos de seguridad para el intercambio de información entre los diferentes proveedores de información.
 \item Implementar el mecanismo encontrado con las tecnologías apropiadas para el buen funcionamiento de la arquitectura computacional segura.
 \item Probar la arquitectura implementada para realizar minería de datos de los proveedores definidos para la investigación (Hospital del Sur, Secretaría de Medio Ambiente y Instituto Nacional de Salud Pública).
 
@@ -257,7 +260,51 @@ De la Red de Monitoreo de Calidad del Aire también se usarán los registros del
 
 En cuanto al SIVIGILA, tendremos la información de confirmación de los casos positivos de las infecciones de respiración aguda del año 2015 en la ciudad de Bogotá.
 
-Dentro de las limitaciones de la arquitectura, no se garantizará por completo la protección de los datos contra ataques directos como son inyecciones SQL o sobre carga de información, ya que la arquitectura se enfocará en el intercambio de los datos con técnicas de encriptación sin afectar directamente las bases de datos privadas. 
+Dentro de las limitaciones de la arquitectura, no se garantizará por completo la protección de los datos contra ataques directos como son inyecciones SQL o sobre carga de información, ya que la arquitectura se enfocará en el intercambio de los datos con técnicas de cifrado sin afectar directamente las bases de datos privadas. 
+
+
+\begin{center}
+\section{METODOLOGÍA}
+
+\end{center}
+Como parte de los diferentes métodos de investigación es muy importante definir de manera asertiva cuál aplicar y también cuál de cierta manera aporte de una manera óptima los recursos que serán utilizados para cada una de sus tareas.
+
+Durante la elaboración de estas tareas, la manera en que se realizará el análisis y la síntesis de los procesos es de manera individual partiendo desde un todo  como eje principal. El análisis por el medio del cual una realidad es descompuesta en partes para su mayor compresión, ya que a partir de un todo se pueda estudiar proceso a proceso sin afectar el proceso que las une. 
+
+Como síntesis del comportamiento resultante de su respectivo análisis también partirá granularmente hasta llegar a emplear de esta manera todo una serie de pasos a los que llegara a unir todos y cada uno de sus procesos.
+
+La regla de descomposición aplicada para este método de investigación es de cierta forma la más adecuada debido a la cantidad de información suministrada por parte de las fuentes de información y el proceso que se implementara: análisis exhaustivo de todos los detalles,
+comportamientos y características de cada uno de los elementos constitutivos de un todo, y estudio de sus partes.
+
+Finalmente, Clasificación como Ordenación de cada una de las partes por clases, siguiendo el patrón del fenómeno analizado, para conocer sus características, detalles y comportamiento y así mismo llegar a una conclusión entregando un análisis de resultados obtenidos para luego ser estudiados y dar explicación del fenómeno observado.
+
+\begin{enumerate}[I]
+\item\textbf{Observación}
+%sus hechos, comportamiento, partes y componentes.
+
+Dentro del proceso de identificación de las variables de desarrollo de la investigación, se debe tener en cuenta que se debe estructurar según funcionalidad y objetivo de cada parte del  proceso de compartir información entre diferentes proveedores, en el caso de la investigación del Hospital del Sur, Secretaría de Ambiente de Bogotá e Instituto Nacional de Salud. La identificación de los componentes o partes, se dará por el tipo de objeto o uso, según lo nombrado se entenderá que se clasificará en las siguientes categorías o pilares:
+
+\begin{enumerate}[1.]
+\item{Proceso de Información (Proveedores de Información / Bases de Datos)}
+\item{Procesos de Seguridad Informática}
+\item{Procesos de ETL}
+\item{Procesos de Minería de Datos}
+\end{enumerate}
+
+\item\textbf{Descripción}
+%Identificación de todos sus elementos, partes y componentes para poder entenderlo.
+Dentro de la descripción de las categorías definidas anteriormente, se realizará la identificación del comportamiento dentro de la arquitectura como la importancia dentro de la secuencia que se llevará en el desarrollo de la investigación.
+
+\begin{enumerate}[1.]
+\item{Proceso de Información (Proveedores de Información / Bases de Datos): En esta categoría se define los elementos, objetos o procesos que se relacionen directamente con los datos a compartir de los proveedores, en este caso se entiende que las bases de datos RIPS (Hospital del Sur), SIVIGILA (Instituto Nacional de Salud) y RMCAB (Secretaría de Ambiente de Bogotá) serán los objetos de estudio, para entender qué datos contienen y las relaciones (Entidad - Relación) para definir los datos para realizar el proceso de extracción de dichas bases de datos privadas a la base de datos pública.}
+\item{Procesos de Seguridad Informática: Se definirá las tecnologías y métodos de criptografía y seguridad informática, para aplicar a los datos que se extraerán a la base de datos pública. Aquí se realizará el desarrollo en Python de scripts para realizar la cifrado, transporte y carga de los datos a la bases de datos pública, teniendo en cuenta que el proceso debe ser uni-direccional para garantizar que no se exponga el orígen de los datos.}
+\item{Procesos de ETL: Se realiza la extracción de la información suministrada por parte de los entes públicos; posteriormente, transformar esta serie de datos en información que sera filtrada de tal manera que su datos represente verdaderamente valor a  frente a lo que se desarrollará; y finalmente ser cargado de una manera en que se podrá manejar. }
+\item{Procesos de Minería de Datos: Se realizara básicamente con el datamining o minería de datos, permitiendo comprender el contenido de un repositorio de datos. Con este fin, se hace uso de prácticas estadísticos. De forma general, los datos son la materia prima bruta. En el momento que los proveedores de información les atribuye algún significado especial pasan a convertirse en verdadera información valiosa que en cierto modo será aprovechada para la investigación.}
+
+\end{enumerate}
+\end{enumerate}
+
+\clearpage
 
 \begin{center}
  \section{MARCO DE REFERENCIA}
@@ -280,7 +327,7 @@ Es por esto que tanto los  RIPS, SIVIGILA, RMCAB y demás entes que permitieron 
 
 De esta manera surge la arquitectura multi-partita computacional o  Secure Multiparty Computation (SMC) que permite que entidades o datasets tengan sus entradas independientes para alimentar procesos intermedios para generar salidas independiente, cuidando la comunicación segura de las entradas [13] pero ademas, permitiendo compartir trozos o subconjuntos de datos autorizados con otros participantes  [14]. Una expectativa en el proceso SMC es la interacción entre las partes que permita una funcionalidad independiente pero relacionada para compartir información de manera segura y protegiendo la confidencialidad de cada dato [15].  
 
-Dentro de la arquitectura multi-partita existe gran variedad de técnicas para garantizar la seguridad en este protocolo, como son circuitos ilegibles (garbled circuits), compartiendo secretos (secret sharing) o encriptación homomórfico (homomorphic encryption) [16]. Así, la preservación de la privacidad se obtendrá aplicando la técnica según se requiera. Dentro de las técnicas nombradas se vincula dentro de una composición de una caja negra aritmética (ABB) [17].
+Dentro de la arquitectura multi-partita existe gran variedad de técnicas para garantizar la seguridad en este protocolo, como son circuitos ilegibles (garbled circuits), compartiendo secretos (secret sharing) o cifrado homomórfico (homomorphic encryption) [16]. Así, la preservación de la privacidad se obtendrá aplicando la técnica según se requiera. Dentro de las técnicas nombradas se vincula dentro de una composición de una caja negra aritmética (ABB) [17].
 
 \subsection{ESTADO DEL ARTE}
 La contaminación de aire en la ciudad de Bogotá ha sido objeto de varios estudios por diferentes entes, ya que se relacionan directamente con enfermedades respiratorias de los habitantes de la capital. Desde 1997, la ciudad cuenta con una red de monitoreo del aire (RCMAB) para la recolección y análisis de los datos recogidos. Las variables que se tienen en cuenta en la recolección son las meteorológicas y las diferentes concentraciones de los contaminantes para encontrar tendencias referentes a la contaminación. Esta tecnología fue tomada de modelos ya implementados alrededor de mundo; por ejemplo en Ciudad de México se encuentran ubicadas 47 estaciones, Londres 30 estaciones, y Beijing 28 estaciones, las cuales suministra información importante para establecer políticas ambientales y de salud.
@@ -351,48 +398,6 @@ La investigación se regirá bajo tres pilares que serán: Salud Pública con é
 \clearpage
 
 
-\begin{center}
-\section{METODOLOGÍA}
-
-\end{center}
-Como parte de los diferentes métodos de investigación es muy importante definir de manera asertiva cuál aplicar y también cuál de cierta manera aporte de una manera óptima los recursos que serán utilizados para cada una de sus tareas.
-
-Durante la elaboración de estas tareas, la manera en que se realizará el análisis y la síntesis de los procesos es de manera individual partiendo desde un todo  como eje principal. El análisis por el medio del cual una realidad es descompuesta en partes para su mayor compresión, ya que a partir de un todo se pueda estudiar proceso a proceso sin afectar el proceso que las une. 
-
-Como síntesis del comportamiento resultante de su respectivo análisis también partirá granularmente hasta llegar a emplear de esta manera todo una serie de pasos a los que llegara a unir todos y cada uno de sus procesos.
-
-La regla de descomposición aplicada para este método de investigación es de cierta forma la más adecuada debido a la cantidad de información suministrada por parte de las fuentes de información y el proceso que se implementara: análisis exhaustivo de todos los detalles,
-comportamientos y características de cada uno de los elementos constitutivos de un todo, y estudio de sus partes.
-
-Finalmente, Clasificación como Ordenación de cada una de las partes por clases, siguiendo el patrón del fenómeno analizado, para conocer sus características, detalles y comportamiento y así mismo llegar a una conclusión entregando un análisis de resultados obtenidos para luego ser estudiados y dar explicación del fenómeno observado.
-
-\begin{enumerate}[I]
-\item\textbf{Observación}
-%sus hechos, comportamiento, partes y componentes.
-
-Dentro del proceso de identificación de las variables de desarrollo de la investigación, se debe tener en cuenta que se debe estructurar según funcionalidad y objetivo de cada parte del  proceso de compartir información entre diferentes proveedores, en el caso de la investigación del Hospital del Sur, Secretaría de Ambiente de Bogotá e Instituto Nacional de Salud. La identificación de los componentes o partes, se dará por el tipo de objeto o uso, según lo nombrado se entenderá que se clasificará en las siguientes categorías o pilares:
-
-\begin{enumerate}[1.]
-\item{Proceso de Información (Proveedores de Información / Bases de Datos)}
-\item{Procesos de Seguridad Informática}
-\item{Procesos de ETL}
-\item{Procesos de Minería de Datos}
-\end{enumerate}
-
-\item\textbf{Descripción}
-%Identificación de todos sus elementos, partes y componentes para poder entenderlo.
-Dentro de la descripción de las categorías definidas anteriormente, se realizará la identificación del comportamiento dentro de la arquitectura como la importancia dentro de la secuencia que se llevará en el desarrollo de la investigación.
-
-\begin{enumerate}[1.]
-\item{Proceso de Información (Proveedores de Información / Bases de Datos): En esta categoría se define los elementos, objetos o procesos que se relacionen directamente con los datos a compartir de los proveedores, en este caso se entiende que las bases de datos RIPS (Hospital del Sur), SIVIGILA (Instituto Nacional de Salud) y RMCAB (Secretaría de Ambiente de Bogotá) serán los objetos de estudio, para entender qué datos contienen y las relaciones (Entidad - Relación) para definir los datos para realizar el proceso de extracción de dichas bases de datos privadas a la base de datos pública.}
-\item{Procesos de Seguridad Informática: Se definirá las tecnologías y métodos de criptografía y seguridad informática, para aplicar a los datos que se extraerán a la base de datos pública. Aquí se realizará el desarrollo en Python de scripts para realizar la encriptación, transporte y carga de los datos a la bases de datos pública, teniendo en cuenta que el proceso debe ser uni-direccional para garantizar que no se exponga el orígen de los datos.}
-\item{Procesos de ETL: Se realiza la extracción de la información suministrada por parte de los entes públicos; posteriormente, transformar esta serie de datos en información que sera filtrada de tal manera que su datos represente verdaderamente valor a  frente a lo que se desarrollará; y finalmente ser cargado de una manera en que se podrá manejar. }
-\item{Procesos de Minería de Datos: Se realizara básicamente con el datamining o minería de datos, permitiendo comprender el contenido de un repositorio de datos. Con este fin, se hace uso de prácticas estadísticos. De forma general, los datos son la materia prima bruta. En el momento que los proveedores de información les atribuye algún significado especial pasan a convertirse en verdadera información valiosa que en cierto modo será aprovechada para la investigación.}
-
-\end{enumerate}
-\end{enumerate}
-
-\clearpage
 
 \begin{sidewaystable}
 \begin{center}
