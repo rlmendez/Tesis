@@ -1,5 +1,9 @@
-\documentclass[a4paper, 12pt, oneside]{article}
+\documentclass[a4paper,openright,12pt]{book}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} 
 
+\setcounter{secnumdepth}{3} %para que ponga 1.1.1.1 en subsubsecciones
+\setcounter{tocdepth}{3} % para que ponga subsubsecciones en el indice
 
 % idioma
 \usepackage[utf8]{inputenc}
@@ -8,6 +12,10 @@
 \usepackage{multirow} % para las tablas
 \usepackage{soul}
 \usepackage{graphicx}
+\usepackage{subfigure} % subfiguras
+
+\setcounter{secnumdepth}{3} %para que ponga 1.1.1.1 en subsubsecciones
+\setcounter{tocdepth}{3} % para que ponga subsubsecciones en el indice
 
 %tablas
 \usepackage{booktabs}
@@ -95,7 +103,7 @@
 			{\large\bf FACULTAD DE INGENIERÍA DE SISTEMAS \par}
 			{\large\bf INGENIERIA DE SISTEMAS Y COMPUTACIÓN \par}
 			{\large\bf BOGOTÁ D.C.\par}
-			{\large\bf MAYO 16 DEL 2016 \par}
+			{\large\bf OCTUBRE 29 DEL 2016 \par}
 		\end{center}
 \end{titlepage}
 }
@@ -111,14 +119,14 @@
 			\vfill
 			{\large\bf Anteproyecto de grado \par}
 			\vfill
-			{\large\bf Directores: Ing. David Alberto Herrera Alvarez PhD. / Ing. Raúl Ernesto Menéndez Mora PhD. 
+			{\large\bf Directores: Ing. David Alberto Herrera Alvarez PhD.
 \par}
 			\vfill
 			{\large\bf UNIVERSIDAD ANTONIO NARIÑO \par}
 			{\large\bf FACULTAD DE INGENIERÍA \par}
 			{\large\bf INGENIERIA DE SISTEMAS Y COMPUTACIÓN \par}
 			{\large\bf BOGOTÁ D.C.\par}
-			{\large\bf MAYO 16 DEL 2016 \par}
+			{\large\bf OCTUBRE 29 DEL 2016 \par}
 		\end{center}
 \end{titlepage}
 }
@@ -133,209 +141,156 @@
 %   \small Espaa
 % }
 
-
 \begin{document}
 \portada
 \contraportada
- 
-
-% \abstract{Esto es una plantilla simple para un artículo en \LaTeX.}
 
 
+\chapter*{}
+\pagenumbering{Roman} % para comenzar la numeración de paginas en números romanos
+\begin{flushright}
+\textit{DEDICADO A... \\
+Nuestras familias y quienes no creyeron en nosotros ....}
+\end{flushright}
 
-\renewcommand\contentsname{\centering TABLA DE CONTENIDOS}
-\tableofcontents
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
+
+¡Muchas gracias a todos!
+
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
+\markboth{RESUMEN}{RESUMEN} % encabezado
+aquí resumen ...
+\tableofcontents % indice de contenidos
 \clearpage
 
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 
+¡Muchas gracias a todos!
 
+\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
 
+\clearpage
+\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+\listoftables % indice de tablas 
 
-%resuelve numeración
-\renewcommand{\thesection}{}
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
-\makeatletter
-\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
-\let\sectionignore\@gobbletwo
-\let\latex@numberline\numberline
-\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
-\makeatother
-% fin resuelve numeración
+\markboth{INTRODUCCION}{INTRODUCCION} % encabezado
+\chapter*{Introducción}
+\addcontentsline{toc}{chapter}{Introducción} % si queremos que aparezca en el índice
 
-\begin{center}
- \section{RESUMEN}
- \end{center}
- 
-Los datos e información en la actualidad son un recurso vital para todos los procesos que se llevan hoy en la sociedad ya que los datos son la recopilación de hechos que suceden en todos los ámbitos de la vida cotidiana. En el caso de la investigación es importante la protección e integridad de los datos tanto de organismos públicos como privados. Pero ¿ qué sucedería, sin importar el origen de la información, si pudiera realizar un análisis de los datos de diferentes proveedores para encontrar relaciones o agrupamientos preservando la integridad y protegiendo la información cada proveedor?
-
-El propósito de esta investigación es plantear y aplicar una arquitectura computacional segura que permita realizar procesos de análisis de datos de diferentes proveedores de información de forma privada (anónima), para encontrar resultados que se  hallarían solamente de manera colaborativa entre los proveedores de información.Se realizará un proceso de protección de los datos de cada proveedor a través de procesos de cifrado con el fin de poder realizar un análisis de manera global de información particular. 
-
-El planteamiento de la arquitectura computacional segura se validará a través de tres bases de datos de diferentes proveedores de información, para este caso, de instituciones públicas: el Hospital del sur, la Secretaría de Ambiente de Bogotá y el Instituto Nacional de Salud.
-
-Palabras clave: Arquitectura multi-partita, mienría de datos, encriptación, seguridad informatica.
-
- \clearpage
- 
-\begin{center}
- \section{INTRODUCCIÓN}
- \end{center}
- 
- Los datos para cada persona u organización son un recurso importante para tomar decisiones, pero  en ocasiones se desea encontrar información que solamente se puede hallar con la colaboración conjunta de diferentes fuentes de información. La privacidad e integridad de los datos de cada proveedor de información se debe preservar en este proceso de compartir los datos para evitar fugas o escape de información delicada o confidencial.Se planteará y probará en la investigación una arquitectura computacional segura para realizar minería de datos con tres proveedores de información diferentes.
-
-Se realizará un proceso de cifrado a cada base de datos privada a través de tecnologías de criptografía con el lenguaje de programación Python. Esto permitirá extraer los datos a una base de datos pública donde se realizará un proceso ETL (extracción, transformación y carga) para poder aplicar la técnica de agrupamiento de minería de datos con el fin de dividir los datos en grupos de objetos. Los métodos de agrupamiento no paramétricos pueden dividirse en tres grupos fundamentales: jerárquicos [1-4], particionales [1] y basados en densidad [5-9].
-
-La arquitectura computacional segura propuesta se implementará en las tres bases de datos de prueba: RIPS (Hospital del Sur Bogotá), Red Monitoreo de Calidad de Aire de Bogotá (Secretaría de Ambiente de Bogotá) y el SIVIGILA (Instituto Nacional de Salud) para encontrar una correlación entre los datos y definir un agrupamiento según las enfermedades de infecciones respiratorias agudas con los registros de contaminación del aire, todo esto sin exponer el origen de cada dato.
+Introducción aquí ...!!!
 
 \clearpage
 
 \begin{center}
- \section{PLANTEAMIENTO DEL PROBLEMA}
+ \chapter{PLANTEAMIENTO DEL PROBLEMA}\label{cap.planteamiento}
+ \pagenumbering{arabic}
  \end{center}
 
-\subsection{DESCRIPCIÓN DEL PROBLEMA}
+\section{DESCRIPCIÓN DEL PROBLEMA}
 
-Las emergencias por infección respiratoria aguda en el mundo han generado la necesidad de reconocer la importancia de fortalecer la estructura y los procesos de vigilancia de la infección respiratoria
-aguda (IRA). Una de las recomendaciones internacionales es la de consolidar la vigilancia sobre este conjunto de enfermedades con un reglamento sanitario, pero a través de estrategias que garanticen una oportuna detección y prevención de estos tipos de emergencias.
+Actualmente las entidades sin importar su naturaleza, desean encontrar información de los datos propios originadas de sus actividades, pero en ocasiones se pueden tomar mejores decisiones o encontrar meta datos de fuentes externas. La dificultad, es poder acceder a la información de otras entidades protegiendo la confidencialidad y seguridad de aquellos datos, sin violar ni espiar información delicada.\\\\
+Para la investigación, se diseñara una arquitectura a través de la combinación de varias tecnologías o técnicas de seguridad aplicadas en un proceso de minería de datos, a tres fuentes de entidades diferentes como es el Instituto Nacional de Salud (SIVIGILA), Hospital del Sur (RIPS) y la Secretaría de Ambiente de Bogotá (Red de Monitoreo de Calidad del Aire de Bogotá RMCAB).\\\\
+Las transformaciones aplicadas a los datos provenientes de las distintas fuentes son básicamente de limpieza y de estructuración. Las transformaciones de limpieza son
+necesarias para asegurar la calidad de los datos finalmente almacenados en el  Data Warehouse (DW) e incluye entre otros, la corrección de errores, eliminación de redundancia y resolución de inconsistencias, así como el asegurar las reglas de negocio definidas. Los cambios en la estructura se realizan para adecuar los esquemas a las funcionalidades de un DW, e incluyen la adecuación al modelo de datos del  Data Warehouse (DW),cambios de formato, operaciones de agregación, etc.\\\\
+El objetivo principal de este reporte es analizar el proceso de ETL de un sistema de Data Warehousing concreto con el fin de caracterizar y categorizar las actividades que en éste aparecen. \\\\
+Con arquitecturas de  este  tipo se ha incursionado  en  algunos gremios. En algunas oportunidades con casos fallidos  y en otros con casos exitosos. Como caso fallido se tiene  la eventualidad en la  ciudad de New York en el año 2014, cuando se recopiló la información de todos los taxistas de la ciudad por parte de la alcaldía neoyorkina. Pero una falla en el proceso de cifrado MD5 permitió que personas ajenas recuperaran información personal de los taxistas de alrededor de 173 millones de viajes realizados\footnote{DAN Goodin.Poorly anonymized logs reveal NYC cab drivers’ detailed whereabouts [En linea]. New York: Dirección URL: <http://arstechnica.com/tech-policy/2014/06/poorly-anonymized-logs-reveal-nyc-cab-drivers-detailed-whereabouts/>. [30, Marzo 2015].}, dejando en evidencia sus datos personales y las rutas con sus clientes frecuentes,  perjudicando así su privacidad. Si esta información la obtuvieran grupos criminales podrían dar seguimiento a taxistas y pasajeros.\\\\
+Un caso exitoso fue el de Netflix, cuando en el año 2006 logró anonimizar la información de más de 500.000 millones de clientes junto a las preferencias de los mismos, mostrando un grado de nivel alto de seguridad y preservación de la integridad de los datos\footnote{HERNANDEZ Alexander New York taxi details can be extracted from anonymised data, researchers say [En linea]. New York: Dirección URL: <https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn>. [30, Marzo 2015].}.\\\\
+Teniendo  en cuenta lo anterior, lo  que se propone  a través de  esta investigación es intentar aplicar una arquitectura, el objetivo de la investigación, es intentar aplicar una arquitectura computacional segura a un procesos de minería de datos entre las entidades nombradas, que  permita encontrar los mismos resultados cuando se realiza el mismo proceso de minería. pero con los datos originales y sin protección alguna. Sí al encontrar que los cambios no son significativos en la comparación (prueba del diseño de la arquitectura propuesta) de los resultados de los dos procesos de datamining, se podrá dar garantía a la información.
 
-Aunque en Colombia se ha realizado seguimiento y notificación de las infecciones respiratorias agudas, se presentan limitaciones de las entidades responsables del sector de salud y ambiental. Entre estas está la dificultad para acceder a la información de cada entidad, ya por procesos burocráticos o razones de confidencialidad, lo que puede dificultar la detección temprana de morbi-mortalidad causado por diferentes agentes etiológicos.
+\section{FORMULACIÓN DEL PROBLEMA}
 
-Una estrategia para poder detectar cifras o patrones de morbi-mortalidad de manera más acertada y anticipada es poder acceder a la información de diferentes fuentes, ya que el acceso a los datos podría estar limitado por cada una de estos. Debido a la complejidad y a lo delicado que es manejar esta información, por la cantidad de datos que se encuentran en cada uno de ellos, es importante encontrar un mecanismo tecnológico con el cual se pueda mantener la confidencialidad de la información de cada uno de los datos suministrados por parte de los entes o instituciones publico-privadas.
+¿ Al aplicar una arquitectura computacional segura a un proceso de minería de datos de información de las entidades Hospital del Sur(RIPS),Sistema Nacional de Vigilancia en Salud Pública (SIVIGILA),Red de Monitoreo y calidad del Aire de Bogotá (RMCAB),mediante las técnicas de agrupación y asociación de datos,se identificaran cambios significativos entre los datos protegidos y los datos originales?
 
-Existen casos en los que los diferentes métodos de compartir información han causado intentos fallidos y exitosos por protegerlos; uno de estos casos fallidos sucedió en la ciudad de New York en el año 2014, cuando se recopiló la información de todos los taxistas de la ciudad por parte de la alcaldía neoyorkina. Pero una falla en el proceso de cifrado MD5 permitió que personas ajenas recuperaran información personal de los taxistas de alrededor de 173 millones de viajes realizados [10], dejando en evidencia sus datos personales y las rutas con sus clientes frecuentes,  perjudicando así su privacidad. Si esta información la obtuvieran grupos criminales podrían dar seguimiento a taxistas y pasajeros.
+\section{JUSTIFICACION}
+El diseño y la aplicación de una arquitectura computacional segura a través de la minería de datos en las entidades de salud,le da garantía a la información (confidencialidad, integridad y disponibilidad),de carácter médica,que debe ser protegida contra eventos o procesos que puedan perjudicar a los pacientes o el hospital por fuga de datos.\\\\
+El primer beneficiado con esta investigación es el hospital del sur por cuanto a la técnica de minería de datos que utilizó,permitiendo detectar y conocer los niveles de afectación del aire bogotano en la infección respiratoria aguda de los pacientes que son atendidos en esta entidad.\\\\
+Para  poder encontrar una correlación entre los eventos registrados en el Hospital del Sur en referencia a las infecciones respiratorias agudas, con los hechos meteorológicos y atmosféricos de las estaciones de la Red de Monitoreo de Calidad de Aire que se encuentran registradas en la ciudad de Bogotá, se tendrá en cuenta que la información del Hospital del Sur referente a las Infecciones Respiratorias Agudas para confrontar con la información dada por las estaciones de monitoreo de contaminación en Bogotá.\\\\
+En el proceso de minería de datos se aplicará se busco la manera de encontrar resultados de clasificación o relación de los datos, de tal manera al intentar encontrar una relación de los resultados anteriores para realizar un análisis y discusión de los mismos.\\\\
+Se tuvo en cuenta que las bases de datos de la Secretaría de Ambiente de Bogotá(RMCAB) y el Instituto Nacional de Salud (SIVIGILA) no será primordial el anonimato de los datos, sino la integridad de la información, puesto que en estas bases de datos no existe información médica sensible para cohibir su publicación, pero sin que ningún evento corrompa los datos originales. En el proceso de compartir información entre las tres entidades, se tendrá relevancia en la integridad de la información de cada, pero protegiendo la exposición pública de datos registrados en el Hospital del Sur.\\\\
+Para la proteger el anonimato e integridad de la información, se definirá cada entidad como un proveedor privado, los cuales expondrán parte de los datos en una base pública para un proceso de minería futuro, teniendo en cuenta que aquella información no deberá permitir la identificación de su origen ni afectar las bases de datos originales en caso de corrupción en la información expuesta públicamente.\\\\
+Luego de ser garantizando el anonimato de la información, se realizó un proceso de prueba de minería de datos, para poder correlacionar los datos del Hospital del Sur con RMCAB a través del método de agrupamiento de datos (Clustering) para encontrar los posibles focos de concentración de población con infecciones de respiración aguda referente a los registros de contaminación del aire. De esta manera, se comparará con la información del SIVIGILA. Los resultados de la minería de datos serán un apoyo  al Hospital del Sur para posibles planes de manejo de prevención de las IRA.De igual manera permitio realizar informes u otros documentos de manera ágil y económica entre las tres entidades evitando procesos de autorizaciones y burocráticos.\\\\
+Además un aporte al desarrollo del proyecto para la facultad de Ingeniería de Sistemas y Computación es promover un nuevo campo de investigación de arquitecturas de computación seguras implementando minería de datos con información cifrado. Finalmente, esto en la vida profesional será el inicio para la profundización con la maestría en Seguridad Informática como así mismo en especializaciones en minería de datos.
 
-Un caso exitoso fue el de Netflix, cuando en el año 2006 logró anonimizar la información de más de 500.000 millones de clientes junto a las preferencias de los mismos, mostrando un grado de nivel alto de seguridad y preservación de la integridad de los datos [11].
+\section{OBJETIVOS}
 
-Se buscará una solución computacional con la combinación de diferentes técnicas con las cuales sean importante  para poder compartir información entre diferentes entidades. En el caso de la investigación se diseñara un mecanismo para compartir información preservando y protegiendo los datos de los proveedores de prueba. 
-
-\subsection{FORMULACIÓN DEL PROBLEMA}
-
-¿Qué mecanismo tecnológico se puede aplicar para compartir información de manera segura y anónima entre las diferentes entidades con las que se trabajará en dicha investigación ?
-
-\subsection{JUSTIFICACION}
-
-Teniendo en cuenta la problemática y para  poder encontrar una correlación entre los eventos registrados en el Hospital del Sur referente a las infecciones respiratorias agudas, con los hechos meteorológicos y atmosféricos de las tres estaciones de la Red de Monitoreo de Calidad de Aire de Bogotá, se tendrá en cuenta que la información del Hospital del Sur, por ser de caracter médica, debe ser protegida contra procesos o eventos que puedan perjudicar a los pacientes u hospital, por fugas de datos confidenciales. 
-
-Para las base de datos privada (RIPS) del Hospital del Sur será la relevante para proteger su información. Dentro de los procesos internos del hospital, solo se expone al público datos que no son importantes ni sensibles. En el proceso de compartir información con otras bases de datos se sigue el alineamiento de no exponer información confidencial, ya que los datos deben ser anónimos, sin olvidar la integridad original de los registros hospitalarios.
-
-Se tiene en cuenta que las bases de datos de la Secretaría de Ambiente de Bogotá y el Instituto Nacional de Salud no será primordial el anonimato de los datos, sino la integridad de la información, puesto que en estas bases de datos no existe información médica sensible para cohibir su publicación, pero sin que ningún evento corrompa los datos originales. En el proceso de compartir información entre las tres entidades, se tendrá relevancia en la integridad de la información de cada, pero protegiendo la exposición pública de datos registrados en el Hospital del Sur.
-
-Para la proteger el anonimato e integridad de la información, se definirá cada entidad como un proveedor privado, los cuales expondrán parte de los datos en una base pública para un proceso de minería futuro, teniendo en cuenta que aquella información no deberá permitir la identificación de su origen ni afectar las bases de datos originales en caso de corrupción en la información expuesta públicamente.
-
-Se diseñará una arquitectura computacional segura, que permita el proceso colaborativo de las tres entidades, para poder realizar una exposición de información de cada una, preservando los datos originales de manera segura y anónima.
-
-Ya garantizando la integridad y anonimato de la información, se realizará un proceso de prueba de minería de datos, para poder correlacionar los datos del Hospital del Sur con RMCAB a través del método de agrupamiento de datos (Clustering) para encontrar los posibles focos de concentración de población con infecciones de respiración aguda referente a los registros de contaminación del aire. De esta manera, se comparará con la información del SIVIGILA. Los resultados de la minería de datos serán un apoyo  al Hospital del Sur para posibles planes de manejo de prevención de las IRA. Igualmente permitirá realizar informes u otros documentos de manera ágil y económica entre las tres entidades evitando procesos de autorizaciones y burocráticos.
-
-Además un aporte al desarrollo del proyecto para la facultad de Ingeniería de Sistemas y Computación es promover un nuevo campo de investigación de arquitecturas de computación seguras implementando minería de datos con información encriptada. Finalmente, esto en la vida profesional será el inicio para la profundización con la maestría en Seguridad Informática como así mismo en especializaciones en minería de datos.
-
-\subsection{OBJETIVOS}
-
-\subsubsection{Objetivo General}
+\subsection{Objetivo General}
 \begin{itemize}
-\item Diseñar una arquitectura computacional que permita compartir información del Hospital del Sur, Instituto Nacional de Salud y la Red de Monitoreo de Calidad del Aire de Bogotá, garantizando la integridad y privacidad de los datos de cada proveedor de información.
+\item Diseñar una arquitectura computacional que permita compartir información entre diferentes entidades, para aplicar un proceso de minería datos dando garantía a la información de cada fuente y a los resultados. 
 \end{itemize}
 
-\subsubsection{Objetivos Específicos}
+\subsection{Objetivos Específicos}
 \begin{itemize}
-\item Diseñar una arquitectura computacional segura y adecuada, basada en los diferentes mecanismos de seguridad para el intercambio de información entre los diferentes proveedores de información.
+\item Diseñar una arquitectura computacional segura y adecuada, basada en los diferentes mecanismos de seguridad para el intercambio de información entre los diferentes proveedores de información Hospital del Sur (RIPS), Sistema Nacional de Vigilancia en Salud Pública del Instituto Nacional de Salud (SIVIGILA), Red de Monitoreo de Calidad del Aire de Bogotá en la Secretaría de Ambiente de Bogotá (RMCAB).
 \item Implementar el mecanismo encontrado con las tecnologías apropiadas para el buen funcionamiento de la arquitectura computacional segura.
-\item Probar la arquitectura implementada para realizar minería de datos de los proveedores definidos para la investigación (Hospital del Sur, Secretaría de Medio Ambiente y Instituto Nacional de Salud Pública).
+\item Probar la arquitectura implementada para realizar minería de datos de los proveedores definidos para la investigación.
+\item Identificar cambios significativos entre los datos protegidos y originales, después de aplicar "...definir que técnica de minería de datos..." a través de una arquitectura computacional segura a un proceso de minería de datos.
 
 \end{itemize}
 
-\subsection{ALCANCE Y LIMITACIONES DEL PROYECTO}
+\section{ALCANCE Y LIMITACIONES DEL PROYECTO}
 
-Para hacer un análisis de las infecciones respiratorias agudas, se escogerán los datos relevantes de cada proveedor de información. Cada proveedor cuenta con su  manejo de información definido, el cuál se deberá entender para definir los posibles identificadores que ayudarán en los procesos posteriores de minería de datos. 
-
-Se realizará en cada uno de las bases de datos un proceso de ETL (extracción,transformación y carga) para definir la información requerida para la investigación. Dentro del proceso del ETL, en cada base de datos se definirán los posibles identificadores y cuasi identificadores para clasificarlos en confidenciales y no confidenciales [12], para determinar los algoritmos de extracción.
-
-Los datos extraídos se guardarán en un banco de datos público utilizando un motor de base de datos Postgresql. El diseño de la base de datos pública se da a partir de los datos extraídos para facilitar el proceso de la minería de datos. La base de datos se montará en los equipos de los  investigadores para el desarrollo de los scripts en Python.
-
-En la ejecución de la extracción de la información en cada un de los proveedores privados se debe preservar la privacidad de los datos para realizar la transformación e inserción al banco de datos público. Esto se garantizará mediante la implementación de una arquitectura multi-partita computacional, la que permitirá la interacción entre los agentes de información de manera individual, protegiendo las diferentes estructuras con técnicas aplicadas para este tipo de arquitectura.
-
-Ya implementada la arquitectura multi partita computacional, se utilizará la herramienta RapidMiner para realizar el proceso de minería de datos, utilizando algoritmos de relación ya implementados.
-
-La información de prueba por parte del Hospital del Sur será del año 2015, la cual tendrán los movimientos registrados de hospitalizaciones y consultas médicas, entre otros. Los datos de ese proveedor suministrará edades, nombres, direcciones, nombres de enfermedades de los pacientes, los cuales serán los más relevantes para proteger contra la exposición inadecuada.
-
-De la Red de Monitoreo de Calidad del Aire también se usarán los registros del año 2015 de las siguientes estaciones Kenedy (Carrera 80 Nº 40-55 Sur), Puente Aranda (Calle 10 Nº 65-28) y Carvajal (Autopista Sur Nº 63-40). Este proveedor nos dará registros de estadísticos de los contaminantes y variables meteorológicas.
-
-En cuanto al SIVIGILA, tendremos la información de confirmación de los casos positivos de las infecciones de respiración aguda del año 2015 en la ciudad de Bogotá.
-
-Dentro de las limitaciones de la arquitectura, no se garantizará por completo la protección de los datos contra ataques directos como son inyecciones SQL o sobre carga de información, ya que la arquitectura se enfocará en el intercambio de los datos con técnicas de cifrado sin afectar directamente las bases de datos privadas. 
+Para aplicar la arquitectura SMC se planteará el diseño a probar cuando se definan los posibles identificadores o atributos  con los cuales se clasificaran los datos en confidenciales y no confidenciales\footnote{HERRANZ Javier NIN Jordi Secure and efficient anonymization of distributed confidential databases, Springer-Verlag Berlin Heidelberg 2014, Online: 23 April 2014. Int. J. Inf. Secur. (2014) 13:497–512, Pág 4.}.
 
 
-\begin{center}
-\section{METODOLOGÍA}
+\subsection{Alcances}
 
-\end{center}
-Como parte de los diferentes métodos de investigación es muy importante definir de manera asertiva cuál aplicar y también cuál de cierta manera aporte de una manera óptima los recursos que serán utilizados para cada una de sus tareas.
+\begin{itemize}
+\item Realizar una clasificación o relación por ubicación individual de cada estación de monitoreo, con la información de los registros de los RIPS y casos confirmados de los mismos.
+\item Realizar un proceso de cifrado/descifrado bajo AES a los datos de origen médico de los RIPS, suministrados por el Hospital del Sur entre el año 2015 - 2016.
+\item Obtener llaves públicas y privadas óptimas para los datos cifrados de los RIPS cumpliendo el Estándar Avanzado de Encriptación AES.
+\item Demostrar con métricas las propiedades de cifrado aplicadas a la confusión, difusión y completitud.
+\item Comparar los resultados de los procesos de minería de datos protegidos y no protegidos.
+\item Lograr un grado aceptable de anonimización en los datos cifrados de los RIPS para dar la garantía de la información pertinente.
+\item Implementar  el código en Python del proceso de perturbación y el proceso de cifrado/descifrado AES.
+\end{itemize}
 
-Durante la elaboración de estas tareas, la manera en que se realizará el análisis y la síntesis de los procesos es de manera individual partiendo desde un todo  como eje principal. El análisis por el medio del cual una realidad es descompuesta en partes para su mayor compresión, ya que a partir de un todo se pueda estudiar proceso a proceso sin afectar el proceso que las une. 
+\subsection{Limitaciones}
 
-Como síntesis del comportamiento resultante de su respectivo análisis también partirá granularmente hasta llegar a emplear de esta manera todo una serie de pasos a los que llegara a unir todos y cada uno de sus procesos.
+\begin{itemize}
+\item No se garantizará por completo la protección de los datos contra ataques directos como son inyecciones SQL o sobre carga de información, ya que la arquitectura se enfocará en el intercambio de los datos con técnicas de cifrado sin afectar directamente las bases de datos privadas. 
+\item La seguridad de información en Hardware no será enfoque de la investigación.
+\item En la arquitectura SMC no se tendrá en cuenta ataques de extracción de los datos ni de las llaves en la transmisión de la información.
+\item La información del Hospital del Sur en Bogotá (RIPS) y del Instituto Nacional de Salud (SIVIGILA) serán del año 2015.
+\item Respecto a la información suministrada por la Red de Monitoreo y Calidad del Aire también se usarán los registros del año 2015 de las catorce (14) estaciones de monitoreo ubicadas en Bogotá, según cuadro 1.1. Dichas estaciones se encuentran distribuidas según la figura 1.1 las cuales tendrán las variables según el cuadro 1.2.
+\end{itemize}
 
-La regla de descomposición aplicada para este método de investigación es de cierta forma la más adecuada debido a la cantidad de información suministrada por parte de las fuentes de información y el proceso que se implementara: análisis exhaustivo de todos los detalles,
-comportamientos y características de cada uno de los elementos constitutivos de un todo, y estudio de sus partes.
+\begin{figure}[htb]
+\centering
+\caption{Ubicación de Estaciones de Monitoreo Bogotá.} 
+\includegraphics[scale=0.31]{Ubicacion_RMCAB}
+\\Ingresar fuente aqui
+\label{fig:Ubicacion}
+\end{figure}
 
-Finalmente, Clasificación como Ordenación de cada una de las partes por clases, siguiendo el patrón del fenómeno analizado, para conocer sus características, detalles y comportamiento y así mismo llegar a una conclusión entregando un análisis de resultados obtenidos para luego ser estudiados y dar explicación del fenómeno observado.
-
-\begin{enumerate}[I]
-\item\textbf{Observación}
-%sus hechos, comportamiento, partes y componentes.
-
-Dentro del proceso de identificación de las variables de desarrollo de la investigación, se debe tener en cuenta que se debe estructurar según funcionalidad y objetivo de cada parte del  proceso de compartir información entre diferentes proveedores, en el caso de la investigación del Hospital del Sur, Secretaría de Ambiente de Bogotá e Instituto Nacional de Salud. La identificación de los componentes o partes, se dará por el tipo de objeto o uso, según lo nombrado se entenderá que se clasificará en las siguientes categorías o pilares:
-
-\begin{enumerate}[1.]
-\item{Proceso de Información (Proveedores de Información / Bases de Datos)}
-\item{Procesos de Seguridad Informática}
-\item{Procesos de ETL}
-\item{Procesos de Minería de Datos}
-\end{enumerate}
-
-\item\textbf{Descripción}
-%Identificación de todos sus elementos, partes y componentes para poder entenderlo.
-Dentro de la descripción de las categorías definidas anteriormente, se realizará la identificación del comportamiento dentro de la arquitectura como la importancia dentro de la secuencia que se llevará en el desarrollo de la investigación.
-
-\begin{enumerate}[1.]
-\item{Proceso de Información (Proveedores de Información / Bases de Datos): En esta categoría se define los elementos, objetos o procesos que se relacionen directamente con los datos a compartir de los proveedores, en este caso se entiende que las bases de datos RIPS (Hospital del Sur), SIVIGILA (Instituto Nacional de Salud) y RMCAB (Secretaría de Ambiente de Bogotá) serán los objetos de estudio, para entender qué datos contienen y las relaciones (Entidad - Relación) para definir los datos para realizar el proceso de extracción de dichas bases de datos privadas a la base de datos pública.}
-\item{Procesos de Seguridad Informática: Se definirá las tecnologías y métodos de criptografía y seguridad informática, para aplicar a los datos que se extraerán a la base de datos pública. Aquí se realizará el desarrollo en Python de scripts para realizar la cifrado, transporte y carga de los datos a la bases de datos pública, teniendo en cuenta que el proceso debe ser uni-direccional para garantizar que no se exponga el orígen de los datos.}
-\item{Procesos de ETL: Se realiza la extracción de la información suministrada por parte de los entes públicos; posteriormente, transformar esta serie de datos en información que sera filtrada de tal manera que su datos represente verdaderamente valor a  frente a lo que se desarrollará; y finalmente ser cargado de una manera en que se podrá manejar. }
-\item{Procesos de Minería de Datos: Se realizara básicamente con el datamining o minería de datos, permitiendo comprender el contenido de un repositorio de datos. Con este fin, se hace uso de prácticas estadísticos. De forma general, los datos son la materia prima bruta. En el momento que los proveedores de información les atribuye algún significado especial pasan a convertirse en verdadera información valiosa que en cierto modo será aprovechada para la investigación.}
-
-\end{enumerate}
-\end{enumerate}
-
-\clearpage
-
-\begin{center}
- \section{MARCO DE REFERENCIA}
-\end{center}
-
-\subsection{MARCO TEÓRICO}
-
-
-Las Infecciones Respiratorias Agudas (IRA) constituyen un grupo de enfermedades que se producen en el aparato respiratorio, causadas por diferentes microrganismos como virus y bacterias, que comienzan de forma repentina y duran menos de 2 semanas aproximadamente. Es una de las infecciones más frecuente en el mundo y representa un importante tema de salud pública en nuestro país.  La mayoría de estas infecciones como el resfriado común son leves, pero dependiendo del estado general de la persona pueden complicarse y llegar a amenazar la vida, como en el caso de la neumonía.
-
-En niños menores de 5 años, la causa de la infección en el  95\% de los casos son los virus siendo de buen pronóstico, pero un pequeño porcentaje puede padecer complicaciones como  otitis, sinusitis y neumonía. Unos de los efectos que generan gran impacto a nivel local son  la combustión y efectos de cambio climático. Por esto  gran parte de la ciudad adelanta campañas con las que promueve la mejora de la calidad del aire, que con el tiempo será vital.
-
-Se afirma que en países en desarrollo, del 2 al 3\% de los niños presentan enfermedades como neumonía. En invierno es cuando incrementa más la posibilidad de infección viral y también afecta a las mujeres embarazadas y a personas con enfermedades respiratorias.
-
-En cuanto al proceso inicial de los procesos de extracción, transformación y carga (ETL), esto constituye un aspecto clave para llevar a buen camino la integración de los datos, cuyo principal objetivo es conseguir un óptimo rendimiento en la obtención de datos de calidad, que respondan a las necesidades de la empresa de forma fiable.
-
-Dentro del agrupamiento de los datos almacenados, el objetivo principal es encontrar que los objetos de un grupo sean similares entre sí y diferentes de los objetos de otros grupos, aplicando clusters (Colección de métodos Estadísticos).
-
-Es por esto que tanto los  RIPS, SIVIGILA, RMCAB y demás entes que permitieron la recopilación de esta información serán de vital importancia para toda la investigación llevada a cabo. En cuanto a la contaminación en el aire, como principal eje de este factor de riesgo ambiental, analizar qué impacto tiene localmente (Bogotá D.C). De esta manera se tendrá una interacción entre los datos clínicos y la ejecución de métodos computacionales que arrojarán resultados para obtener una serie de análisis y unas conclusiones luego de su proceso. Componente importante dentro de estos procesos sera el de ETL donde se tendrá en cuenta la agrupación de datos para realizar clasificación de grupos basados en su similaridad. 
-
-De esta manera surge la arquitectura multi-partita computacional o  Secure Multiparty Computation (SMC) que permite que entidades o datasets tengan sus entradas independientes para alimentar procesos intermedios para generar salidas independiente, cuidando la comunicación segura de las entradas [13] pero ademas, permitiendo compartir trozos o subconjuntos de datos autorizados con otros participantes  [14]. Una expectativa en el proceso SMC es la interacción entre las partes que permita una funcionalidad independiente pero relacionada para compartir información de manera segura y protegiendo la confidencialidad de cada dato [15].  
-
-Dentro de la arquitectura multi-partita existe gran variedad de técnicas para garantizar la seguridad en este protocolo, como son circuitos ilegibles (garbled circuits), compartiendo secretos (secret sharing) o cifrado homomórfico (homomorphic encryption) [16]. Así, la preservación de la privacidad se obtendrá aplicando la técnica según se requiera. Dentro de las técnicas nombradas se vincula dentro de una composición de una caja negra aritmética (ABB) [17].
-
-\subsection{ESTADO DEL ARTE}
-La contaminación de aire en la ciudad de Bogotá ha sido objeto de varios estudios por diferentes entes, ya que se relacionan directamente con enfermedades respiratorias de los habitantes de la capital. Desde 1997, la ciudad cuenta con una red de monitoreo del aire (RCMAB) para la recolección y análisis de los datos recogidos. Las variables que se tienen en cuenta en la recolección son las meteorológicas y las diferentes concentraciones de los contaminantes para encontrar tendencias referentes a la contaminación. Esta tecnología fue tomada de modelos ya implementados alrededor de mundo; por ejemplo en Ciudad de México se encuentran ubicadas 47 estaciones, Londres 30 estaciones, y Beijing 28 estaciones, las cuales suministra información importante para establecer políticas ambientales y de salud.
-
-El sistema RCMAB utiliza para la medición sensores tipo DASIBI u OPSIS, los cuales se encargan de medir variables  como concentraciones atmosféricas y fenómenos meteorológicos, de las cuales se agrupan de la siguiente manera dada en el cuadro 1.0.
+\begin{table}[htb]
+\centering
+\caption{Nombre de estaciones RMCAB.}
+\resizebox{5cm}{!} {
+\begin{tabular}{|l|l|}
+\hline
+Guaymaral & Usaquén \\ \hline
+Suba & Bolivia \\ \hline
+Las Ferias & P. Simón Bolívar \\ \hline
+Sagrado corazón & Fontibón \\ \hline
+Puente Aranda & Kennedy \\ \hline
+Carvajal & Túnal \\ \hline
+San Cristóbal & Móvil \\ \hline
+\end{tabular}
+}
+\\Ingresar fuente aqui
+\label{tabla:RMCAB1}
+\end{table}
 
 \begin{table}[htbp]
 \begin{center}
+\caption{Tabla Clasificación Variables RMCAB.}
+\resizebox{10cm}{!} {
 \begin{tabular}{|l|l|}
 \hline
 Concentraciones Atmosféricas & Fenómenos  Meteorológicos \\
@@ -353,180 +308,340 @@ Tolueno &  \\ \hline
 Formaldehído &  \\ \hline
 Hidrocarburos No Metánicos & \\ \hline
 \end{tabular}
-\caption{Tabla Clasificación Variables RMCAB.}
-\label{tabla:sencilla}
+}
+\label{tabla:variables RMCAB}
+\\Ingresar fuente aqui
 \end{center}
 \end{table}
 
+\begin{center}
+\chapter{METODOLOGÍA}\label{cap.metodologia}
+\end{center}
+\section{Resumen}
+Para el desarrollo de la investigación y la aplicación de la arquitectura segura computacional, se debía contar con la información o datos a utilizar en el experimento, de esta manera se realizaron las solicitudes, descargar y archivo de la información de las tres fuentes Hospital del Sur, Secretaría de Medio Ambiente de Bogotá y el Instituto Nacional de Salud. Ya obtenidos los datos requeridos, se deberá estructurar el desarrollo de la investigación en dos ramas, como es la minería de datos y la seguridad de los datos, ya que son los pilares de la investigación. Cada rama tendrá sus ramificaciones requeridas para la necesidad de cumplir los objetivos planeados anteriormente.
+\section{Minería de Datos}
 
-La ubicación de las estaciones se determino principalmente por la distribución  industrial de la ciudad, ya que en la zona centro occidental se encuentran ubicadas la gran parte de las industrias y mayor movilización de autos en sus diferentes presentaciones. De esta manera con estudios previos se ha concluido que los valores límites establecidos son superados cada año ya que entre los años 1998 y 2005, siete de estas estaciones han reportado medias anuales que superan la norma anual para PM [18].
-
-Para la vinculación de la contaminación dada en la ciudad de Bogotá, se debe tener en cuenta que es un causante determinante en las enfermedades respiratorias agudas ya que este tipo de infección es una de las principales causas de morbilidad y mortalidad (entre infantes menores a 5 años y personas de la tercera edad) [19] con el agravante de ser una de las diez primeras causas de muerte en nuestro país [20]. De esta manera, la búsqueda de relaciones directas entre las IRA y la información dada en los RMCAB será primordial para respaldar los estudios previos que se han hecho de manera individual. 
+Para el tratamiento de los datos con los que se cuenta y a los que se tiene acceso de manera permanente, es necesario no solo contar con toda si no también tener la capacidad de organizarlos a través de un método de minería de datos agrupados y de manera no jerárquicos con lo que se garantiza una uniformidad en los datos para para proceder a ser analizados por medio de la herramienta Rapidminer,es evidente que la información debe ser protegida, pero también explotada.En la agrupación de los datos se contara con una serie de elementos  con un criterio de cercania ,información de datos no agrupados,y que buscan tener orden  para determinar su prioridad. 
 
 
-Igualmente con las variables tomadas por el RMCAB para realizar los análisis, se recomienda el fortalecimiento del sistema para alertas tempranas enfocadas a la salud, por sugerencia del Intergovernmental Panel on Climate Change (IPCC) [21]. Ya que dentro de las políticas que se deben establecer para el manejo de la contaminación ambiental referente a la salud pública, se basará a partir de los estudios realizados en los últimos años por la academia como fue en la Universidad de Los Andes donde se indaga sobre la influencia del clima en las IRA.
-
-Ya desde el punto de seguridad informática aplicada al estudio de investigación, se plantea una comunicación entre las partes sin tener en cuenta el costo computacional, simulando bases de datos privadas y públicas [22]. En el caso de la investigación, cada dataset será clasificada como privada para realizar un proceso ETL y de esta manera diseñar una base de datos público para realizar la minería de datos. La inserción de los datos entre la base de datos para el procesamiento computacional se realizará entre las partes con datos encriptados [23].
-
-De esta manera se diseñará una arquitectura flexible basado en la conversión de compartir secretos de las bases de datos privadas para realizar la minería de datos en una base pública, donde se tendrá en cuenta el nivel de complejidad de los datos a extraer de cada dataset según el número de participantes, de esta manera los datos extraídos serán catalogados como partes de secretos de su origen [24].
-
-\subsection{MARCO LEGAL}
-
-La investigación se regirá bajo tres pilares que serán: Salud Pública con énfasis en IRA, seguridad informática, y regulación ambiental (calidad del aire) en la ciudad de Bogotá:
-\begin{enumerate}[I]%for capital roman numbers.
-\item\textbf{Seguridad Informática:}
-	\begin{itemize}   
-	\item\textbf{Ley 23, de 28 de enero de 1982: }que protege la imagen individual frente a varias formas de abuso.
-    \item\textbf{Ley 57 de 5 de junio de 1985: } por la cual se ordena la publicidad de los actos y documentos oficiales.
-    \item\textbf{Resolución 1995/1999 de 8 de junio 1999 del MPS: } sobre manejo de la historia clínica.
-   
+	\subsection{Recolección de Datos}
+    Para la investigación, salvaguardar la integridad de la información es el objetivo dentro de un proceso de minería de datos, aplicando las técnicas escogidas de cifrado combinadas a las técnicas de minería de datos esperando obtener los mejores resultados, que se verán reflejados en la fase de comparación de los datos cifrados contra los datos originales, en las mismas condiciones de minería de datos.
+    
+Los procesos de recopilación y recolección de la información requerida, fue de la siguiente manera:
+\begin{enumerate}
+	\item \textbf{Fuente: Secretaría de Ambiente Distrital:} La base de datos requerida para la investigación, es la Red de Monitoreo de Calidad del Aire de Bogotá, en cual se registran las variables meteorológicas y ambientales respecto a la contaminación de aire. Actualmente se encuentran 13 estaciones de monitoreo, de las cuales doce son fijas y una móvil. La información se solicitó formalmente con los Radicados SDA No. 2016ER142305, 2016ER142728, 2016ER143626 del 18/08/2016 y 2016ER142929, 2016ER142733 del 19/08/2016, en el cual se obtuvo respuesta el día 29 de Agosto del año 2016. Donde nos especifican la información técnica de cada estación y dos direcciones IP para el acceso y descarga de la información que se requiera.
+    \begin{itemize}
+		\item %http://201.245.192.252:81/App_Files/Hojas_de_Vida_Estaciones_2014\%20\%28carpeta\%29.pdf
+        \item http://201.245.192.252:81
 	\end{itemize}
-\item\textbf{Salud Pública:}
-	\begin{itemize}
-	\item\textbf{Decreto 273 de 2004 :} por la cual se crea el Comité Distrital para la Prevención y Atención de la Enfermedad Respiratoria Aguda y se dictan otras disposiciones.
+    \item \textbf{Fuente: Hospital del Sur:} La información  que se  obtiene para esta investigación es proveniente de fuentes de información externa, recopilada a través de un acceso al servidor del Instituto Nacional de Salud Colombiano, que se ingresa de la siguiente manera:
+    \begin{enumerate}
+		\item Abrir una hoja de cálculo (excel, openoffice).
+        \item Buscar la opción de Fuentes externas, escogiendo el método de conexión Analysis Services, que crea una coexión a un cubo de SQL Server Analysis Service a través de una tabla dinámica.
+        \item Se ingresar los siguientes datos:
+            \begin{itemize}
+				\item \textbf{Nombre del Proveedor:} cubos.sispro.gov.co
+       			 \item \textbf{Usuario:} sispro.local\textbackslash usuario1
+				\item \textbf{Contraseña:} usuario1
 	\end{itemize}
-\item\textbf{Calidad del Aire:}
-	\begin{itemize}
-    \item\textbf{Constitución Nacional Art. 79: }  Todas las personas tienen derecho a gozar de un ambiente sano. La Ley garantizará la participación de la comunidad en las decisiones que puedan afectarla. Es deber del Estado proteger la diversidad e integridad del ambiente, conservar las áreas de 	especial importancia ecológica y fomentar la educación para el logro de estos fines.
-    \item\textbf{Decreto 02 de 1982: } Reglamenta título I de la Ley 09-79 y el decreto 2811-74. Disposiciones sanitarias sobre emisiones atmosféricas. Art. 7 a 9: Definiciones y normas generales. Art.73: Obligación del Estado de mantener la calidad atmosférica para no causar molestias o daños que interfieran el desarrollo normal de especies y afecten los recursos 	naturales. Art. 74: Prohibiciones y restricciones a la descarga de material particulado, gases y vapores a la atmósfera. Art. 75: Prevención de la contaminación atmosférica.
-    \item\textbf{Decreto 948 de 1995: } Normas para la protección y control de la calidad del aire.
-    \item\textbf{Resolución 1351 de 1995: } Se adopta la declaración denominada Informe de Estado de Emisiones-IE1
-    \item\textbf{Resolución 005 de 1996: } Reglamenta niveles permisibles de emisión de contaminantes por fuentes móviles.
-    \item\textbf{Resolución 610 del 24 de marzo de 2010: } con el fin de evaluar el cumplimiento de los estándares de calidad de aire en Bogotá.
-\end{itemize}
+    	\item Escoger el tipo de acceso directamente al cubo del Sispro o de Servicios Públicos.
+        \item Ya para el usuario, escogerá los filtros a utilizar según los datos o columnas que se requieran.
+	\end{enumerate}
+    
+
+    \item \textbf{Fuente: Instituto Nacional de Salud:} La información tiene el mismo origen del Hospital del Sur y el mismo método de acceso al anterior.
 \end{enumerate}
+     \subsection{Implementación de Minería de Datos}
+Si el modelo del sistema que produce los datos es conocido, entonces no necesitamos de la minería de datos ya que todas las variables son de alguna manera predecibles. Este no es el caso dado que los dataset utilizados entre los diferentes proveedores de información son independientes y contienen información no relacionada entre ellos, debido a los efectos del
+comportamiento humano, el clima y de decisiones políticas
+entre otros. En estos casos habrá una parte de la información en donde se procedera a realizar un tratamiento individual del sistema que es
+conocida y habrá una parte aparentemente de naturaleza
+aleatoria. Bajo ciertas circunstancias, a partir de una gran
+cantidad de datos asociada con el sistema sera posible realizar la mineria de datos en cada uno de ellos y , existe la
+posibilidad de encontrar nuevos aspectos previamente
+desconocidos del modelo. 
+\section{Cifrado de Información}
+Garantizar la confidencialidad a la información suministrada por las fuentes nombradas anteriormente, se abordará a través del algoritmo AES para el cifrado y descifrado de los datos. Se generará una llave privada de tamaño 128, 192 ó 256 bits. Este método evita que la llave privada se catalogue como débil o semi - débil\footnote{PENCHALAIAH PhD, SESHADRI  PhD. Effective Comparison and Evaluation of DES and Rijndael Algorithm (AES), International Journal on Computer Science and Engineering Vol. 02, No. 05, 2010, 1641-1645 Pág. 1642.} dentro de la clasificación de tipos de claves.
+    \subsection{Características del Cifrado}
+    Al escoger el algoritmo AES, para el cifrado avanzado de la información se compara con otro algoritmo como es DES, el anterior inmediato al AES, donde dicho algoritmo según el tamaño de claves o llaves, genera un número determinado de llaves:
+\begin{itemize}
+	\item 128 bits: aproximadamente 3,4 x 1.038 posibles claves\footnote{ibi p. 1642.}.
+    \item 192 bits: aproximadamente 6.2 x 1.057 posibles claves\footnote{ibi p. 1642.}.
+    \item 256 bits: aproximadamente 1,1 x 1077 posibles claves\footnote{ibi p. 1642.}.
+\end{itemize}
+
+De esta manera, la investigación implementará el algoritmo AES de longitud 128 bits, para compararse con la longitud de DES de 56 bits, donde este se genera 7,2 x 1016 posibles claves, con una diferencia en magnitud de 1021 claves más\footnote{ibi p. 1642.}. Este algoritmo es la última tendencia en el área de seguridad informática en los bancos, entes gubernamentales y de seguridad nacional. Sí se quisiera romper la clave generará por el algoritmo DES teóricamente en un segundo con una máquina de 149 mil millones de dólares para romper una clave AES se tardaría 149 billones de años con una longitud de 128 bits\footnote{ibi p. 1642.}.
+
+Los datos a cifrar serán solamente los identificadores y seudo identificadores de la base de datos del Hospital del Sur, ya que  se determinará las columnas a proteger. Para finalizar esta fase se debe identificar que datos se van a cifrar con el algoritmo AES de longitud 128 bits.
+
+     \subsection{Aplicación del Cifrado}
+     El algoritmo AES también tiene la ventaja de que se puede implementar de manera cómoda y efectiva en lenguajes de programación de bajo o alto nivel\footnote{ibi p. 1645.}, combinado con las bondades del lenguaje Python, que permite el manejo más eficiente de lectura de archivos y así mismo de los datos. Para el caso de la investigación será más fácil y rápido la implementación de los archivos que contengan los datos de las tres fuentes, aplicando el algoritmo AES 128 bits.
+     
+La finalización de esta fase, será dado por el desarrollo de los scripts necesarios para poder recuperar los datos de los archivos originales y aplicar de manera efectiva el cifrado/descifrado de los datos protegidos, cumpliendo la garantía a la información. 
+     
+	\subsection{Pruebas del Algoritmo AES 128 bits}
+Todo algoritmo de cifrado no puede demostrar su eficiencia de manera matemática, pero sí de sus tres propiedades como es la completitud, difusión y confusión. Para finalizar esta fase se soporta con métricas las tres propiedades anteriores para garantizar la buena implementación del algoritmo. 
+
+FALTA INDICAR QUE PRUEBA SE HARAN !!!
+     
+     \section{Comparación Datos Cifrados - Originales}
+La realización de un estudio de comparación es un proceso iterativo. Luego de reunir datos sin procesar, el equipo de comparaciones debería revisarlos cuidadosamente a efectos de asegurarse de que tanto la calidad como la cantidad de la información que se está recopilando cumplan con los requisitos que permiten la ejecución exitosa del proyecto. Este proceso es de vital importancia para el estudio dado que la mala calidad de los datos (definiciones inconsistentes, datos faltantes o valores extremos) puede generar resultados sesgados.
+
+
+Esta información que se encuentra cifrada será sometida a una perturbación de datos con lo que se llegara a concluir de manera comparativa que afectación o que cambio provoca aplicar este tipo de metodos y en que nivel importancia podra ser seguro o no la información.
+
+Tanto la información original como la que ha sido  modificada o alterada debera contar 
+\begin{center}
+ \chapter{MARCO DE REFERENCIA}\label{cap.referencia}
+\end{center}
+
+\section{MARCO TEÓRICO}
+
+Las Infecciones Respiratorias Agudas (IRA) constituyen un grupo de enfermedades que se producen en el aparato respiratorio, causadas por diferentes microrganismos como virus y bacterias, que comienzan de forma repentina y duran menos de 2 semanas aproximadamente. Es una de las infecciones más frecuente en el mundo y representa un importante tema de salud pública en nuestro país.  La mayoría de estas infecciones como el resfriado común son leves, pero dependiendo del estado general de la persona pueden complicarse y llegar a amenazar la vida, como en el caso de la neumonía.\\\\
+En niños menores de 5 años, la causa de la infección en el  95\% de los casos son los virus siendo de buen pronóstico, pero un pequeño porcentaje puede padecer complicaciones como  otitis, sinusitis y neumonía. Unos de los efectos que generan gran impacto a nivel local son  la combustión y efectos de cambio climático. Por esto  gran parte de la ciudad adelanta campañas con las que promueve la mejora de la calidad del aire, que con el tiempo será vital.\\\\
+Se afirma que en países en desarrollo, del 2 al 3\% de los niños presentan enfermedades como neumonía. En invierno es cuando incrementa más la posibilidad de infección viral y también afecta a las mujeres embarazadas y a personas con enfermedades respiratorias.\\\\
+Como parte fundamental tambien se encuentra la manera de obtener dichos datos En cuanto al proceso inicial de los procesos de extracción, transformación y carga (ETL), esto constituye un aspecto clave para llevar a buen camino la integración de los datos, cuyo principal objetivo es conseguir un óptimo rendimiento en la obtención de datos de calidad, que respondan a las necesidades de la empresa de forma fiable.\\\\
+La minería de datos se define como el proceso de
+exploración y análisis, por medios automáticos o
+semiautomáticos, de grandes volúmenes de información
+con el objetivo de descubrir e identificar patrones y reglas
+significativas\footnote{M. Berry, G. Linoff, “Mastering data mining: the art andscience of customer relationship management“. West Susex:John Wiley \& Sons, 1999}.\\\\
+Dentro del agrupamiento de los datos almacenados, el objetivo principal es encontrar que los objetos de un grupo sean similares entre sí y diferentes de los objetos de otros grupos, aplicando clusters (Colección de métodos Estadísticos).\\\\
+Es por esto que tanto los  RIPS, SIVIGILA, RMCAB y demás entes que permitieron la recopilación de esta información serán de vital importancia para toda la investigación llevada a cabo. En cuanto a la contaminación en el aire, como principal eje de este factor de riesgo ambiental, analizar qué impacto tiene localmente (Bogotá D.C). De esta manera se tendrá una interacción entre los datos clínicos y la ejecución de métodos computacionales que arrojarán resultados para obtener una serie de análisis y unas conclusiones luego de su proceso. Componente importante dentro de estos procesos sera el de ETL donde se tendrá en cuenta la agrupación de datos para realizar clasificación de grupos basados en su similaridad. \\\\
+De esta manera surge la arquitectura multi-partita computacional o  Secure Multiparty Computation (SMC) que permite que entidades o datasets tengan sus entradas independientes para alimentar procesos intermedios para generar salidas independiente, cuidando la comunicación segura de las entradas\footnote{DAMGARD Ivan, et at. Multiparty Computation from Somewhat Homomorphic Encryption, International Association for Cryptologic Research 2012, R. Safavi-Naini and R. Canetti (Eds.): CRYPTO 2012, LNCS 7417, pp. 643.} pero ademas, permitiendo compartir trozos o subconjuntos de datos autorizados con otros participantes\footnote{GHODOSI Hossein Ghodosi, et at. Multi-party computation with conversion of secret sharing, Springer Science+Business Media, LLC 2011, Des. Codes Cryptogr. (2012) 62:259–272, Online: 10 May 2011,pp. 260.}. Una expectativa en el proceso SMC es la interacción entre las partes que permita una funcionalidad independiente pero relacionada para compartir información de manera segura y protegiendo la confidencialidad de cada dato\footnote{KIRAZ SABIR Mehmet, UZUNKOL Osmanbey. Efficient and verifiable algorithms for secure outsourcing of cryptographic computations, Springer-Verlag Berlin Heidelberg 2015, Int. J. Inf. Secur, Online: 15 Nov 2015,pp. 1.}.  \\\\
+Dentro de la arquitectura multi-partita existe gran variedad de técnicas para garantizar la seguridad en este protocolo, como son circuitos ilegibles (garbled circuits), compartiendo secretos (secret sharing) o cifrado homomórfico (homomorphic encryption)\footnote{LAUD Peeter. Privacy-Preserving Minimum Spanning Trees through Oblivious Parallel RAM for Secure Multiparty Computation, Online: 25 Nov 2014,pp. 3.}. Así, la preservación de la privacidad se obtendrá aplicando la técnica según se requiera. Dentro de las técnicas nombradas se vincula dentro de una composición de una caja negra aritmética (ABB)\footnote{ibi, p. 5.}.
+
+\textbf{\textit{Criptografía:}}
+
+En la actualidad los bancos para los procesos de cifrado y descifrado, están trabajando bajo el estándar de encriptación avanzado AES (Advanced Encriyption Standard), en cual la relación entre el consumo computacional y la seguridad que debe garantizar es muy importante, pero en este caso existe un equilibrio para poder trabajar bajo el estándar nombrado. Se debe tener en cuenta los fundamentos generales de la criptografía, donde existe tres campos de acción en el momento cifrar o proteger cualquier información Cuadro 3.1: 
+
+\begin{table}[htb]
+\centering
+\caption{Conceptos Generales Cifrados.}\footnote{GOMEZ Vieitis Alvaro. Sistema seguros de acceso y transmisión de datos, RA-MA Editorial Pag 15.}
+\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{9cm} }
+\hline
+\textbf{\textit{Conceptos:}} & \textbf{\textit{Definición:}} \\ \hline
+Criptografía & "...es la ciencia que se encarga de estudiar las distintas técnicas empleadas para transformar (“encriptar” o “cifrar”) la información y hacerla irreconocible a todos aquellos usuarios no autorizados de un sistema informático, de modo que solo los legítimos propietarios puedan recuperar (“desencriptar” o “descifrar”) la información original..." \\ \hline
+Criptoanálisis & "...es la ciencia que se ocupa de estudiar herramientas y técnicas que permitan romper los códigos y sistemas de protección definidos por la criptografía...." \\ \hline
+Criptología & "...es la ciencia de inventar sistemas de cifrado de la información (criptografía) y de desbaratarlos (criptoanálisis) se la conoce colectivamente con el término de Criptología . ..." \\ \hline
+\end{tabular}
+\label{tabla:ConceptosCriptograficos}
+\\Ingresar fuente aqui
+\end{table}
+
+Además se debe tener en cuenta que los sistemas criptográficos, pueden ser objetos de ataques, para robo o alteración de la información que se esta protegiendo y dando confidencialidad, de esta manera según el criptoanálisis se puede clasificar en 4 tipos, los cuales son:
+
+\begin{enumerate}
+	\item \textbf{Ataques basados solo en el texto cifrado:}  se tiene varios textos protegidos con el objetivo de encontrar la clave y recuperar la información original (fuerza bruta).\footnote{ibi, p. 21}
+    \item \textbf{Ataques basados en texto claro conocido:} se tiene varios textos o información cifrados, los cuales se utilizarán para descifrar y encontrar la llave en otros textos.\footnote{ibi, p.  21}
+    \item \textbf{Ataques basados en texto claro seleccionado:} similar al proceso anterior, pero en este caso se selecciona los textos cifrados con características similares para descifrar y encontrar la clave en otros textos cifrados.\footnote{ibi, p. 21}
+    \item \textbf{Ataques adaptativos basados en texto claro conocido: } con procesos de cifrados anteriores, se busca la estrategia de modificar aquellos procesos por parte para ir aplicando la modificación sobre los textos cifrados objetos para descifrado.\footnote{ibi, p. 21}
+\end{enumerate}
+
+De la clasificación de los sistemas criptográficos, dependerá del orígen o naturaleza de las llaves de cifrado / descifrado Fig. 3.1, donde existe los procesos simétricos y asimétricos, donde los primero tienen la misma llave para cifrar y descifrar, mientras que el segundo se genera dos llaves diferentes pero relacionadas entre sí, una para cifrar y otra para descifrar durante el proceso de cifrado. Después de aplicar el sistema de cifrado, la información se debe complementar también de algunas condiciones para garantizar plenamente la confidencialidad y seguridad de los textos u objetos cifrados. Estas condiciones serán dadas por la robustez del esquema de cifrado diseñado y la adecuada gestión de las claves.
+
+\begin{figure}[htb]
+\centering
+\caption{Clasificación de los sistemas criptográficos.}\footnote{GOMEZ Vieitis Alvaro. Sistema seguros de acceso y transmisión de datos, RA-MA Editorial Pag 23}
+\includegraphics[scale=0.8]{ClasificacionCripto}
+\label{fig:ClasificacionCripto}
+\\Ingresar fuente aqui
+\end{figure}
+
+En el momento de definir de la robustez del esquema, se debe definir a través de métricas tres propiedades primordiales en el algoritmo aplicado, ya que una demostración matemática del algoritmo en general es difícil; donde las propiedades son de confusión, difusión y completitud.\footnote{ibi, p. 38} Cuadro. 3.2.\\\\
+Pero es realmente difícil poder aplicar un algoritmo con grados altos de las propiedades nombradas, ya que también se debe garantizar el buen uso de los servicios y recursos computacionales, trabajando en conjunto con la comunicación para envió y recepción de la información cifrada. Teóricamente el único sistema irrompible es el propuesto en 1917 por Gilbert Vernam (Cifrado de Vernam one - time pad) donde con una sola clave que se genera de manera aleatoria y del mismo tamaño del mensaje a cifrar, solamente se dará al impostor la longitud del mensaje, agregando que solo se podrá utilizar una vez dicha clave.
+
+\begin{table}[htb]
+\centering
+\caption{Propiedades de Robustez en el esquema diseñado de cifrado.}\footnote{GOMEZ Vieitis Alvaro. Sistema seguros de acceso y transmisión de datos, RA-MA Editorial Pag 38.}
+\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{9cm} }
+\hline
+\textbf{\textit{Conceptos:}} & \textbf{\textit{Definición:}} \\ \hline
+\textbf{\textit{Confusión:}} & "...permite ocultar la relación entre el texto claro y el texto cifrado, dificultando el análisis de patrones estadísticos (se consigue generar la "confusión" mediante operaciones de sustitución de símbolos)..." \\ \hline
+\textbf{\textit{Difusión:}} & "...pretende disimular las redundancias del texto claro al extenderlas por todo el texto cifrado (característica que se consigue gracias a las operaciones de transposición de símbolos)...." \\ \hline
+\textbf{\textit{Completitud:}} & "...se cumple si cada bit de texto cifrado depende de todos y cada uno de los bits de la clave. En otro caso, se podrían realizar ataques contra determinadas partes de la clave, en una estrategia de “divide y vencerás”..." \\ \hline
+\end{tabular}
+\label{tabla:RobustezPropiedades}
+\\Ingresar fuente aqui
+\end{table}
+
+Pero desde el punto práctico un sistema criptográfico, se puede medir frente a los ataques de fuerza bruta (se explora todas las posibilidades de claves dentro del rango del sistema criptográfico),  ataques de diccionarios (trabajar con una lista de posibles claves alimentadas de fuentes de información, de la organización dueña de la información) y contra la implementación del algoritmo.\footnote{ibi, p. 39}\\\\
+Ya para la adecuada gestión de claves, ya que se debe definir muy bien los roles de las personas que tengan las claves y los tipos de acceso de la información. Donde la tecnología criptográfica se encuentra sometida a la regulación de la norma International Traffic in Arms Regulations (ITAL)\footnote{ibi, p. 41} ya que se cataloga de peligro por el manejo de información cifrada que los gobiernos no puedan descifrar.  
+
+\section{ESTADO DEL ARTE}
+	\subsection{Seguridad}
+Para el envió de los datos se tendrá en cuenta la seguridad informática aplicada al estudio de investigación, se plantea una comunicación entre las partes sin tener en cuenta el costo computacional, simulando bases de datos privadas y públicas\footnote{KIRAZ SABIR Mehmet, UZUNKOL Osmanbey. Efficient and verifiable algorithms for secure outsourcing of cryptographic computations, Springer-Verlag Berlin Heidelberg 2015, Int. J. Inf. Secur, Online: 15 Nov 2015,pp. 2.}. En el caso de la investigación, cada dataset será clasificada como privada para realizar un proceso ETL y de esta manera diseñar una base de datos público para realizar la minería de datos. La inserción de los datos entre la base de datos para el procesamiento computacional se realizará entre las partes con datos cifrados\footnote{ibi, p.  4.}.\\\\
+De esta manera se diseñará una arquitectura flexible basado en la conversión de compartir secretos de las bases de datos privadas para realizar la minería de datos en una base pública, donde se tendrá en cuenta el nivel de complejidad de los datos a extraer de cada dataset según el número de participantes, de esta manera los datos extraídos serán catalogados como partes de secretos de su origen\footnote{GHODOSI Hossein Ghodosi, et at. Multi-party computation with conversion of secret sharing, Springer Science+Business Media, LLC 2011, Des. Codes Cryptogr. (2012) 62:259–272, Online: 10 May 2011,pp. 263.}.\\\\
+Se debe tener en cuenta que no se cifrará toda la información, ya que las fuentes de información son instituciones públicas, solamente se dará protección a los datos de personas y ubicación de los registros de los RIPS. Figura 3.2.
+
+\begin{figure}[htb]
+\centering
+\caption{Cifrado en la arquitectura} 
+\includegraphics[scale=0.4]{Diagrama_Arq}
+\label{fig:Cifrado}
+\\Ingresar fuente aqui
+\end{figure}
+
+El procedimiento para el debido funcionamiento de cifrado en el sistema, se manejará el procedimiento Seguro para Transferencia de un Archivo de Datos usando Técnicas Criptográficas (simétricas )dotadas de una clave secreta AES y una clave privada RSA, ya que esta transferencia nos permitirá:
+
+\begin{itemize}
+\item Autenticación del funcionamiento del Emisor que envía la información. La firma digital obtenida a través de la clave privada RSA es imposible de falsificar.\footnote{CELINA Drovandi. CRIPTOGRAFÍA
+SEGURIDAD EN ESQUEMAS DE FILE TRANSFER SEGURIDAD EN INTERNET Revista de la Universidad de Mendoza, 2015 pag 374}
+\item Confidencialidad, ya que los datos encriptados no pueden ser interpretados por nadie que no esté autorizado por el Receptor.\footnote{ibid, p. 374.}
+\item Integridad de la Información: cualquier alteración, ya sea accidental o maliciosa de los datos, por mínima que sea, hará que en el proceso de desencriptado la información no resulte clara sino que se transforme en un conjunto ilegible de caracteres.\footnote{ibid, p. 374.}
+\item Seguridad: nadie podrá enviar mensajes falsos intentando usurpar la identidad de un Emisor, ni desde adentro ni desde afuera del sistema.\footnote{ibi, p. 374.}
+\item No repudio de origen y destino.\footnote{ibid, p 374.}
+\end{itemize}
+
+AES (Advanced Encryption Standard) Se basa en varias sustituciones , permutaciones y transformaciones lineales, este método es el preferido en procesos de seguridad en los estados, bancos y sistemas de alta seguridad\footnote{Dr. Bhadresh P. Patel, Vishal R. Pancholi. Enhancement of Cloud Computing Security with Secure Data Storage using AES IJIRST –International Journal for Innovative Research in Science and Technology Volume 2 Issue 09 February 2016 ISSN (online): 2349-601 Pag 18}. Una ventaja en el desarrollo del AES permite elegir un vario tipo de bits como de 128 bits, 192 bits o clave de 256 bits, por lo que es exponencialmente más fuerte que la clave de 56 bits de DES\footnote{ibi, p. 19}. Además el proceso de AES comparándolo con DES y RSA, es mejor ya que consumen menos tiempo de cifrado pero mucho mayor de intento de descifrado anormal\footnote{ibi, p. 19}.  
+
+El proceso de cifrado AES se compone de una serie de operaciones vinculadas , algunos de los cuales implican la sustituciones específicas y otros implican alrededor de los bits (permutaciones)\footnote{ibi, p.  20} Figura 3.3. 
+
+\begin{figure}[htb]
+\centering
+\caption{Cifrado y descifrado en AES} 
+\includegraphics[scale=0.3]{AES}
+\label{fig:CifradoAES}
+\\Ingresar fuente aqui
+\end{figure}
+
+El cifrado AES actualmente se esta implantando e implementando en las tecnologías actuales de la nube, ya que es el método más rápido que tiene la flexibilidad y capacidad de ampliación, consumiendo poca memoria a comparación de los otros métodos de cifrado simétrico. En términos de resistencia contra una variedad de ataques tales como ataque cuadrado, clave de ataque, ataque clave de recuperación y el ataque diferencial. Por lo tanto, el algoritmo AES es un método de cifrado de alta seguridad. Los datos también puede proteger contra ataques futuros, tales como ataques de la rotura violenta\footnote{ibi, p. 21}. En la actualidad la mayor parte de los algoritmos criptográficos son públicos y se basan en una serie de operaciones elementales sobre los datos que constituyen el texto original: transposiciones (cambiar el orden de los símbolos que forman parte del texto) y sustituciones  (reemplazar unos símbolos por otros)\footnote{GOMEZ Vieitis Alvaro. Sistema seguros de acceso y transmisión de datos, RA-MA Editorial Pag 17}.
+
+\subsection{Minería de Datos}
+
+La aplicación automatizada de algoritmos de minería de datos permite detectar fácilmente patrones en los datos, razón por la cual esta técnica es mucho más eficiente que el análisis dirigido a la verificación cuando se intenta explorar datos procedentes de repositorios de gran tamaño y complejidad elevada. Dichas técnicas emergentes se encuentran en continua evolución como resultado de la colaboración entre campos de investigación tales como bases de datos, reconocimiento de patrones, inteligencia artificial, sistemas expertos, estadística, visualización, recuperación de información, y computación de altas prestaciones. Los algoritmos de minería de datos se clasifican en dos grandes categorías: supervisados o predictivos y no supervisados o de descubrimiento del conocimiento \footnote{[Weiss y Indurkhya, 1998] Weiss, S.M. y Indurkhya, N. “Predictive Data Mining. A Practical Guide”Morgan Kaufmann Publishers, San Francisco, 1998.}\\\\
+Los algoritmos supervisados o predictivos predicen el valor de un atributo (Etiqueta) de un conjunto de datos, conocidos otros atributos (atributos descriptivos). A partir de datos cuya etiqueta se conoce se induce una relación entre dicha etiqueta y otra serie de atributos. Esas relaciones sirven para realizar la predicción en datos cuya etiqueta es desconocida. Esta forma de trabajar se conoce como aprendizaje supervisado y se desarrolla en dos fases: Entrenamiento (construcción de un modelo usando un subconjunto de datos con etiqueta conocida) y prueba (prueba del modelo sobre el resto de los datos). Cuando una aplicación no es lo suficientemente madura no tiene el potencial necesario para una solución predictiva, en ese caso hay que recurrir a los métodos no supervisados o de descubrimiento de  conocimiento que descubren patrones y tendencias en los datos actuales (no utilizan datos históricos). El descubrimiento de esa información sirve para llevar a cabo acciones y obtener un beneficio (científico o de negocio) de ellas. En la tabla siguiente se muestran algunas de las técnicas de minería de ambas categorías.
+
+\begin{figure}[htb]
+\centering
+\caption{Clasificación de las técnicas de minería de datos} 
+\includegraphics[scale=0.7]{Tabla1}
+\label{fig:Tabla1}
+\\Ingresar fuente aqui
+\end{figure}
+
+La aplicación de los algoritmos de minería de datos requiere la realización de una serie de procesos previos con el fin de  preparar los datos de entrada debido a que, en muchas ocasiones dichos datos proceden de fuentes heterogéneas que no se encuentran organizadas, no tienen el formato adecuado o
+contienen ruido. Por otra parte, es necesario interpretar y evaluar los resultados obtenidos. El proceso completo consta de las siguientes etapas\footnote{[Cabena et al., 1998] Cabena, P., Hadjinian, P., Stadler, R., Verhees, J. Y Zanasi, A.
+“Discovering Data Mining. From Concept to Implementation”, Prentice Hall, 1998.}:
+
+\begin{enumerate}
+\item \textbf{Preparación de Datos:}
+	\begin{itemize}
+		\item \textbf{Selección:} Identificación de las fuentes de información externas e internas y selección del subconjunto de datos necesario.
+        \item \textbf{Preprocesamiento:} estudio de la calidad de los datos y determinación de las operaciones de minería que se pueden realizar.
+\end{itemize}
+\item \textbf{Transformación de datos:} conversión de datos en un modelo analítico.
+\item \textbf{Minería de datos:} tratamiento automatizado de los datos seleccionados con una combinación apropiada de algoritmos.
+\item \textbf{Análisis de resultados:} interpretación de los resultados obtenidos en la etapa anterior.generalmente con la ayuda de una técnica de visualización.
+\item \textbf{Asimilación de conocimiento:} aplicación del conocimiento descubierto
+\end{enumerate}
+
+Aunque los pasos anteriores se realizan en el orden en que aparecen, el proceso es altamente iterativo, estableciéndose retroalimentación entre los mismos. Además, no todos los pasos requieren el mismo esfuerzo, generalmente la etapa de pre-procesamiento es la más costosa ya que representa aproximadamente el 60 \% del esfuerzo total, mientras que la etapa de minería sólo representa el 10 \% . 
+
+\section{MARCO LEGAL}
+
+\subsection{Legislación Nacional}
+
+En Colombia la legislación vigente referente a la protección de la confidencialidad se encuentra consagrada en la Constitución Política, en su Artículo 15:\\
+Todas las personas tienen derecho a su intimidad personal y familiar y a su buen nombre, y el Estado debe respetarlos y hacerlos respetar. De igual modo, tienen derecho a conocer, actualizar y rectificar las informaciones que se hayan recogido sobre ellas en los bancos de datos y en archivos de entidades públicas y privadas. En la recolección, tratamiento y circulación de datos se respetarán la libertad y demás garantías consagradas en la Constitución. La correspondencia y demás formas de comunicación privada son inviolables\footnote{De Colombia CP Constitución Política de Colombia Bogotá Colombia Leyer 1991}.
+
+En 2012, la Ley 1581, por la cual se dictan disposiciones generales para la protección de datos personales, parcialmente reglamentada por la Ley 1377 de 2013, dispone en sus principios referentes al acceso y circulación restringida de seguridad y de confidencialidad, que el acceso a los datos se debe restringir y la información debe estar sujeta a tratamiento por parte del responsable, como lo indica en su Artículo 4:
+
+Finalmente, en el Código Nacional de Buenas Prácticas para las Estadísticas Oficiales se hace referencia a la anonimización de los micro-datos en el principio 5:
+
+Confidencialidad. Las entidades pertenecientes al Sistema Estadístico Nacional -SEN- deben garantizar la protección y la confidencialidad de la información con la que se producen las estadísticas oficiales, así como evitar la identificación de las fuentes.\footnote{CUARTAS Rodriguez E, JALLER Escudero JD. El Habeas Data como Derecho fundamental y la Ley 1581 de 2012 y su decreto 1377 de 2013-2014}
+Precisa en el numeral 5.3 que se debe:
+5.3. Asegurar que la publicación de las estadísticas oficiales no permita la identificación individual de las fuentes\footnote{ibi p. 3}.
+Adicionalmente en los numerales 5.4 y 5.6 el Código, enfatiza que se debe contar con un protocolo para anonimizar los datos:
+5.4 Aplicar protocolos para la protección y seguridad de la información. 5.6. El acceso a micro-datos anonimizados por parte de los usuarios debe estar sujeto a protocolos que garanticen la confidencialidad\footnote{ibi p. 3}.
+
+La Ley en su Artículo 21, da las pautas para la divulgación total o parcial, indicando que la información puede tener una versión pública siempre y cuando mantenga la reserva únicamente de la parte indispensable:
+Principio de la divulgación proactiva de la información. El derecho de acceso a la información no radica únicamente en la obligación de dar respuesta a las peticiones de la sociedad, sino también en el deber de los sujetos obligados de promover y generar una cultura de transparencia, lo que conlleva la obligación de publicar y divulgar documentos y archivos que plasman la actividad estatal y de interés público, de forma rutinaria y proactiva, actualizada, accesible y comprensible, atendiendo a límites razonables del talento humano y recursos físicos y financieros\footnote{Congreso de la República Ley 1712 de 2014.}.
+
+\subsection{Legislación Internacional}
+
+Según el principio establecido por la División de Estadísticas de Naciones Unidas, los datos deben ser manejados con confidencialidad y exclusividad.
+Los datos que reúnan los organismos de estadística para la compilación estadística, ya sea que se refieran a personas naturales o jurídicas, deben ser estrictamente confidenciales y utilizarse exclusivamente para fines estadísticos\footnote{ONU United Nations Statistical Commission. Fundamental principles of official statistics. Off Rec Econ Soc Counc. 1994.}.
+
+En el contexto jurídico, la Unión Europea, desde su Directiva 95/46/CE, en el considerando 26, excluye los datos anonimizados del alcance de la legislación sobre protección de los mismos considerando que:
+
+Los principios de la protección deberán aplicarse a cualquier información relativa a una persona identificada o identificable; que, para de- terminar si una persona es identificable, hay que considerar el conjunto de los medios que puedan ser razonablemente utilizados por el responsable del tratamiento o por cualquier otra persona, para identificar a dicha persona; que los principios de la protección no se aplicarán a aquellos datos hechos anónimos de manera tal que ya no sea posible identificar al interesado; que los códigos de conducta con arreglo al artículo 27 pueden constituir un elemento útil para proporcionar indicaciones sobre los medios gracias a los cuales los datos pueden hacerse anónimos y conservarse de forma tal que impida identificar al interesado\footnote{Unión Europea UE. Europeas C, de la Unión Europea C. Directiva 95/46/CE del Parlamento Europeo y del Consejo de 24 de octubre de 1995 relativa a la protección de las personas físicas en lo que respecta al tratamiento de datos personales ya la libre circulación de estos datos. Agencia de Protección de Datos; 1997.}.
+
+\begin{center}
+ \chapter{DESARROLLO DEL PROYECTO}\label{cap.desarrollo}
+\end{center}
+
+\section{Minería de Datos}
+		\subsection{Recolección de Datos}
+    	\subsection{Implementación de Minería de Datos}
+\section{Cifrado de Información}
+    	\subsection{Características del Cifrado}
+        En esta fase, se determinó que columnas de las tres bases de datos se cifrarán junto a la justificación, ya que se determinó por el tipo de variable para determinar sí es identificador o seudo-identificador, según la tabla 4.1:
+ 
+\begin{table}[htb]
+\centering
+\caption{Identificación y clasificación de las columnas de las tres bases de datos trabajadas para el proceso de cifrado.}
+\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{3cm} >{\arraybackslash}m{3cm} >{\arraybackslash}m{5cm} }
+\hline
+\textbf{\textit{Columna}} & \textbf{\textit{Identificador}} & \textbf{\textit{Seudo Identificador}} & \textbf{\textit{Justificación}} \\ \hline
+\textbf{\textit{1:}} & 1 & 1 & 1 \\ \hline
+\textbf{\textit{1:}} & 1 & 1 & 1 \\ \hline
+\textbf{\textit{1:}} & 1 & 1 & 1 \\ \hline
+\textbf{\textit{1:}} & 1 & 1 & 1 \\ \hline
+\textbf{\textit{1:}} & 1 & 1 & 1 \\ \hline
+\textbf{\textit{1:}} & 1 & 1 & 1 \\ \hline
+\textbf{\textit{1:}} & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\label{tabla:ClasificacionColumnas}
+\\Ingresar fuente aqui
+\end{table}
+        
+        
+        
+        
+        
+        \subsection{Aplicación del Cifrado y ¿Protocolos de Seguridad?}
 \clearpage
 
-
-
-\begin{sidewaystable}
 \begin{center}
-\section{CRONOGRAMA}
+ \chapter{RESULTADOS}\label{cap.resultados}
 \end{center}
-\begin{center}
-Parte 1
-\includegraphics[width=\textwidth]{Imagen1.png}
-\end{center}
-\end{sidewaystable}
+\section{Interpretación de los Resultados Minería de Datos}
+\section{Pruebas para el Cifrado}
+\section{Comparación Datos Cifrados - Originales}
 \clearpage
 
-\begin{sidewaystable}
 \begin{center}
-Parte 2
-\includegraphics[width=\textwidth]{Imagen3.png}
+ \chapter{ANÁLISIS}\label{cap.analisis}
 \end{center}
-\end{sidewaystable}
+Escribir aqui
 \clearpage
 
-\begin{sidewaystable}
 \begin{center}
-Parte 3
-\includegraphics[width=\textwidth]{Imagen2.png}
+ \chapter{CONCLUSIONES Y RECOMENDACIONES}\label{cap.conclusiones}
 \end{center}
-\end{sidewaystable}
+Escribir aqui
 \clearpage
 
-\begin{sidewaystable}
 \begin{center}
-Parte 4
-\includegraphics[width=\textwidth]{Imagen4.png}
+ \chapter{GLOSARIO DE TÉRMINOS}\label{cap.glosario}
 \end{center}
-\end{sidewaystable}
+AGENTES ETIOLOGICOS: el agente etiologico es el que causa la enfermedad. el agente transmisor es el que lo transmite de un organismo a otra.\\\\
+ALGORITMO: es un conjunto prescrito de instrucciones o reglas bien definidas, ordenadas y finitas que permite realizar una actividad mediante pasos sucesivos. \\\\
+ANONIMIZAR: es la necesidad de los cibernautas de ocultar información mientras navegan para evitar el uso de sus datos personales (como la dirección IP o la situación geográfica) con fines estadísticos, publicitarios o vandálicos ha causado la aparición del neologismo anonimizar, que se ha extendido después a otros ámbitos.  \\\\
+DATASETS: es una colección de datos habitualmente tabulada.En general y en su versión más simple, un conjunto de datos corresponde a los contenidos de una única tabla de base de datos o una única matriz de datos estadística, donde cada columna de la tabla representa una variable en particular, y cada fila representa a un miembro determinado del conjunto de datos en cuestión. Un conjunto de datos contiene los valores para cada una de las variables, como por ejemplo la altura y el peso de un objeto, que corresponden a cada miembro del conjunto de datos. Cada uno de estos valores se conoce con el nombre de dato. El conjunto de datos puede incluir datos para uno o más miembros en función de su número de filas.\\\\
+ENCRIPTACIÓN: es el proceso para volver ilegible información considera importante. La información una vez encriptada sólo puede leerse aplicándole una clave. Se trata de una medida de seguridad que es usada para almacenar o transferir información delicada que no debería ser accesible a terceros.\\\\
+INFECCIÓN DE RESPIRACIÓN AGUDA: la Infección Respiratoria Aguda (IRA) constituyen un grupo de enfermedades que se producen en el aparato respiratorio, causadas por diferentes microorganismos como virus y bacterias, que comienzan de forma repentina y duran menos de 2 semanas.
+La mayoría de estas infecciones como el resfriado común son leves, pero dependiendo del estado general de la persona pueden complicarse y llegar a amenazar la vida, como en el caso de las neumonías. \\\\
+MORBILIDAD:es la proporción de personas (o animales) que se enferman en un sitio y tiempo determinado.1 Minoritariamente también se usa como sinónimo morbilidad, que etimológicamente es correcto.  \\\\
+MORTALIDAD:indica el número de fallecimientos de una población en concreto por cada 1000 habitantes, durante un período de tiempo determinado, este puede ser durante un año. \\\\
+SCRIPTS: son programas, usualmente pequeños o simples, para realizar generalmente tareas muy específicas. Los scripts son un conjunto de instrucciones generalmente almacenadas en un archivo de texto que deben ser interpretados línea a línea en tiempo real para su ejecución.\\\\
 \clearpage
 
-\begin{sidewaystable}
 \begin{center}
-\section{RECURSOS}
+ \chapter{ANEXOS}\label{cap.anexos}
 \end{center}
-\begin{center}
-Parte 1
-\includegraphics[width=\textwidth]{Hoffman1.png}
-\end{center}
-\end{sidewaystable}
-\clearpage
 
-\begin{sidewaystable}
-\begin{center}
-Parte 2
-\includegraphics[width=\textwidth]{Hoffma2.png}
-\end{center}
-\end{sidewaystable}
-\clearpage
-
-\begin{sidewaystable}
-\begin{center}
-Parte 3
-\includegraphics[width=\textwidth]{Marco1.png}
-\end{center}
-\end{sidewaystable}
-\clearpage
-
-\begin{sidewaystable}
-\begin{center}
-Parte 4
-\includegraphics[width=\textwidth]{Marco2.png}
-\end{center}
-\end{sidewaystable}
-\clearpage
-
-\clearpage
-
-
-
-% Bibliografa.
-%-----------------------------------------------------------------
-
-\begin{thebibliography}{99}
-
-\bibitem[1]{R. O. Duda.}DR. O. Duda.\emph{P. E. Hart, and D. Stork, “Pattern Classification”, 2001, Wiley series in Probabilistic and Statistic, John Wiley and Sons, Second Edition.}
-
-\bibitem[2]{G. Karypis.} G. Karypis.\emph{E. H. Han. And V. Kumar, “Chameleon: A hierarchical clustering algorithm using dynamic modeling”, IEEE Computer, 1999, 32(8), pag. 68-75.}
-
-\bibitem[3]{T. Zhang, R. Ramakrishnan, and M. Livny.}T. Zhang, R. Ramakrishnan, and M. Livny.\emph{“BIRCH: An efficient data Clustering method for very large databases”, In Proceedings of ACM SIGMOD Conference on Management of Data, 1996, pag. 103-114.}
-
-\bibitem[4]{S. Guha, R. Rastogi, and K. Shim,}S. Guha, R. Rastogi, and K. Shim,\emph{“CURE: An efficient clustering algorithm for large databases”, In Proceedings of ACM SIGMOD 98, 1998, pag. 73- 84.}
-
-\bibitem[5]{M. Ester, H.P. Kriegel, J. Sander and X. Xu.}M. Ester, H.P. Kriegel, J. Sander and X. Xu.\emph{“A density-based algorithm for discovering clusters in large spatial databases with noise”, In Proceedings of International Conference on Knoowledge Discovery and Data Mining (KDD 96), 1996, pag 226-231.}
-
-\bibitem[6]{M. Ankerst, M. Bruenig, H. P. Kriegel, and J. Sander.}M. Ankerst, M. Bruenig, H. P. Kriegel, and J. Sander\emph{“OPTICS: ordering points tu identify the clustering structure”, In Proceedings of ACM SIGMOD International Conference on Management of Data, 1999, pag. 49- 60.}
-
-\bibitem[7]{Thanh N. Tran.}Thanh N. Tran.\emph{“Knn Density-Based Clustering for High Dimensional Multispectral Images”.}
-
-\bibitem[8]{L. Ertoz, M. Steinbach.}L. Ertoz, M. Steinbach.\emph{V. Kumar, “Finding Clusters of Different Sizes, Shapes and Densities in Noise”, 2003,}
-
-\bibitem[9]{] A. Hinneburg, and D. A. Keim.}] A. Hinneburg, and D. A. Keim.\emph{“An efficient Approach to Clustering in Large Multimedia Databases with Noise”, in Proceedings Knowledge Discovery and Data Mining, 1998, pag. 58-65.}
-
-%Agrupamiento Clustering Referencias
-
-\bibitem[10]{DAN Goodin.}DAN Goodin.\emph{Poorly anonymized logs reveal NYC cab drivers’ detailed whereabouts [En linea]. New York: Dirección URL: <http://arstechnica.com/tech-policy/2014/06/poorly-anonymized-logs-reveal-nyc-cab-drivers-detailed-whereabouts/>. [30, Marzo 2015].}
-
-\bibitem[11]{HERNANDEZ ALEXANDER.}HERNANDEZ ALEXANDER.\emph{New York taxi details can be extracted from anonymised data, researchers say [En linea]. New York: Dirección URL: <https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn>. [30, Marzo 2015].}
-
-\bibitem[12]{HERRANZ Javier NIN Jordi.}HERRANZ Javier , NIN Jordi.\emph{Secure and efficient anonymization of distributed confidential databases, Springer-Verlag Berlin Heidelberg 2014, Online: 23 April 2014. Int. J. Inf. Secur. (2014) 13:497–512, Pág 4.}
-
-\bibitem[13]{DAMGARD Ivan, PASTRO Valerio, SMART Nigel, ZAKARIAS Sarah .}DAMGARD Ivan, PASTRO Valerio, SMART Nigel, ZAKARIAS Sarah .\emph{Multiparty Computation from Somewhat Homomorphic Encryption, International Association for Cryptologic Research 2012, R. Safavi-Naini and R. Canetti (Eds.): CRYPTO 2012, LNCS 7417, pp. 643.}
-
-\bibitem[14]{GHODOSI Hossein Ghodosi, PIEPRZYK Josef, STEINFELD Ron.}GHODOSI Hossein Ghodosi, PIEPRZYK Josef, STEINFELD Ron .\emph{Multi-party computation with conversion of secret sharing, Springer Science+Business Media, LLC 2011, Des. Codes Cryptogr. (2012) 62:259–272, Online: 10 May 2011,pp. 260.}
-
-\bibitem[15]{KIRAZ SABIR Mehmet, UZUNKOL Osmanbey.}KIRAZ SABIR Mehmet, UZUNKOL Osmanbey .\emph{Efficient and verifiable algorithms for secure outsourcing of cryptographic computations, Springer-Verlag Berlin Heidelberg 2015, Int. J. Inf. Secur, Online: 15 Nov 2015,pp. 1.}
-
-\bibitem[16]{LAUD Peeter.}LAUD Peeter .\emph{Privacy-Preserving Minimum Spanning Trees through Oblivious Parallel RAM for Secure Multiparty Computation, Online: 25 Nov 2014,pp. 3.}
-
-\bibitem[17]{LAUD Peeter.}LAUD Peeter .\emph{Privacy-Preserving Minimum Spanning Trees through Oblivious Parallel RAM for Secure Multiparty Computation, Online: 25 Nov 2014,pp. 5.}
-
-\bibitem[18]{GAITAN Mauricio, CANCINO Juliana, BEHRENTZ Eduardo.} GAITAN Mauricio, CANCINO Juliana, BEHRENTZ Eduardo .\emph{Análisis del estado de la calidad del aire en Bogotá, Online: 1 OCT 2007,pp. 3.}
-
-\bibitem[19]{CORREAL Maria Elsa Correal, MARTHA Juan Esteban, SARMIENTO Rodrigo.} GCORREAL María Elsa Correal, MARTHÁ Juan Esteban, SARMIENTO Rodrigo .\emph{Influencia de la variabilidad climática en las enfermedades respiratorias agudas en Bogotá, 2013, Biomédica 2015;35(Supl.2):130-8, <http://dx.doi.org/10.7705/biomedica.v35i0.2456> , pp. 131.}
-
-\bibitem[20]{CORREAL Maria Elsa Correal, MARTHA Juan Esteban, SARMIENTO Rodrigo.} GCORREAL María Elsa Correal, MARTHÁ Juan Esteban, SARMIENTO Rodrigo .\emph{Influencia de la variabilidad climática en las enfermedades respiratorias agudas en Bogotá, 2013, Biomédica 2015;35(Supl.2):130-8, <http://dx.doi.org/10.7705/biomedica.v35i0.2456> , pp. 131.}
-
-\bibitem[21]{CORREAL Maria Elsa Correal, MARTHA Juan Esteban, SARMIENTO Rodrigo.} GCORREAL María Elsa Correal, MARTHÁ Juan Esteban, SARMIENTO Rodrigo .\emph{Influencia de la variabilidad climática en las enfermedades respiratorias agudas en Bogotá, 2013, Biomédica 2015;35(Supl.2):130-8, <http://dx.doi.org/10.7705/biomedica.v35i0.2456> , pp. 133.}
-
-\bibitem[22]{KIRAZ SABIR Mehmet, UZUNKOL Osmanbey.}KIRAZ SABIR Mehmet, UZUNKOL Osmanbey .\emph{Efficient and verifiable algorithms for secure outsourcing of cryptographic computations, Springer-Verlag Berlin Heidelberg 2015, Int. J. Inf. Secur, Online: 15 Nov 2015,pp. 2.}
-
-\bibitem[23]{KIRAZ SABIR Mehmet, UZUNKOL Osmanbey.}KIRAZ SABIR Mehmet, UZUNKOL Osmanbey .\emph{Efficient and verifiable algorithms for secure outsourcing of cryptographic computations, Springer-Verlag Berlin Heidelberg 2015, Int. J. Inf. Secur, Online: 15 Nov 2015,pp. 4.}
-
-\bibitem[24]{GHODOSI Hossein Ghodosi, PIEPRZYK Josef, STEINFELD Ron.}GHODOSI Hossein Ghodosi, PIEPRZYK Josef, STEINFELD Ron .\emph{Multi-party computation with conversion of secret sharing, Springer Science+Business Media, LLC 2011, Des. Codes Cryptogr. (2012) 62:259–272, Online: 10 May 2011,pp. 263.}
-
-\end{thebibliography}
 \end{document}
+
+-
