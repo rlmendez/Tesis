@@ -13,6 +13,18 @@
 \usepackage{soul}
 \usepackage{graphicx}
 \usepackage{subfigure} % subfiguras
+\usepackage{fancyhdr}
+
+\pagestyle{fancyplain}%\addtolength{\headwidth}{\marginparwidth}
+\textheight22.5cm \topmargin0cm \textwidth16.5cm
+\oddsidemargin0.5cm \evensidemargin-0.5cm%
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\; #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\; #1}}
+\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\rightmark}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
+\fancyfoot{}
+\thispagestyle{fancy}%
+
 
 \setcounter{secnumdepth}{3} %para que ponga 1.1.1.1 en subsubsecciones
 \setcounter{tocdepth}{3} % para que ponga subsubsecciones en el indice
@@ -141,6 +153,7 @@
 %   \small Espaa
 % }
 
+
 \begin{document}
 \portada
 \contraportada
@@ -191,17 +204,15 @@ Introducción aquí ...!!!
  \chapter{PLANTEAMIENTO DEL PROBLEMA}\label{cap.planteamiento}
  \pagenumbering{arabic}
  \end{center}
+ 
 
 \section{DESCRIPCIÓN DEL PROBLEMA}
 
-Actualmente las entidades sin importar su naturaleza, desean encontrar información de los datos propios originadas de sus actividades, pero en ocasiones se pueden tomar mejores decisiones o encontrar meta datos de fuentes externas. La dificultad, es poder acceder a la información de otras entidades protegiendo la confidencialidad y seguridad de aquellos datos, sin violar ni espiar información delicada.\\\\
-Para la investigación, se diseñara una arquitectura a través de la combinación de varias tecnologías o técnicas de seguridad aplicadas en un proceso de minería de datos, a tres fuentes de entidades diferentes como es el Instituto Nacional de Salud (SIVIGILA), Hospital del Sur (RIPS) y la Secretaría de Ambiente de Bogotá (Red de Monitoreo de Calidad del Aire de Bogotá RMCAB).\\\\
-Las transformaciones aplicadas a los datos provenientes de las distintas fuentes son básicamente de limpieza y de estructuración. Las transformaciones de limpieza son
-necesarias para asegurar la calidad de los datos finalmente almacenados en el  Data Warehouse (DW) e incluye entre otros, la corrección de errores, eliminación de redundancia y resolución de inconsistencias, así como el asegurar las reglas de negocio definidas. Los cambios en la estructura se realizan para adecuar los esquemas a las funcionalidades de un DW, e incluyen la adecuación al modelo de datos del  Data Warehouse (DW),cambios de formato, operaciones de agregación, etc.\\\\
-El objetivo principal de este reporte es analizar el proceso de ETL de un sistema de Data Warehousing concreto con el fin de caracterizar y categorizar las actividades que en éste aparecen. \\\\
-Con arquitecturas de  este  tipo se ha incursionado  en  algunos gremios. En algunas oportunidades con casos fallidos  y en otros con casos exitosos. Como caso fallido se tiene  la eventualidad en la  ciudad de New York en el año 2014, cuando se recopiló la información de todos los taxistas de la ciudad por parte de la alcaldía neoyorkina. Pero una falla en el proceso de cifrado MD5 permitió que personas ajenas recuperaran información personal de los taxistas de alrededor de 173 millones de viajes realizados\footnote{DAN Goodin.Poorly anonymized logs reveal NYC cab drivers’ detailed whereabouts [En linea]. New York: Dirección URL: <http://arstechnica.com/tech-policy/2014/06/poorly-anonymized-logs-reveal-nyc-cab-drivers-detailed-whereabouts/>. [30, Marzo 2015].}, dejando en evidencia sus datos personales y las rutas con sus clientes frecuentes,  perjudicando así su privacidad. Si esta información la obtuvieran grupos criminales podrían dar seguimiento a taxistas y pasajeros.\\\\
-Un caso exitoso fue el de Netflix, cuando en el año 2006 logró anonimizar la información de más de 500.000 millones de clientes junto a las preferencias de los mismos, mostrando un grado de nivel alto de seguridad y preservación de la integridad de los datos\footnote{HERNANDEZ Alexander New York taxi details can be extracted from anonymised data, researchers say [En linea]. New York: Dirección URL: <https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn>. [30, Marzo 2015].}.\\\\
-Teniendo  en cuenta lo anterior, lo  que se propone  a través de  esta investigación es intentar aplicar una arquitectura, el objetivo de la investigación, es intentar aplicar una arquitectura computacional segura a un procesos de minería de datos entre las entidades nombradas, que  permita encontrar los mismos resultados cuando se realiza el mismo proceso de minería. pero con los datos originales y sin protección alguna. Sí al encontrar que los cambios no son significativos en la comparación (prueba del diseño de la arquitectura propuesta) de los resultados de los dos procesos de datamining, se podrá dar garantía a la información.
+Actualmente las entidades sin importar su naturaleza o campo de acción, desean mejorar sus procesos a través de los datos propios generados por sí mismas, pero en ocasiones  se pretende tomar mejores decisiones o encontrar meta datos de fuentes externas. La dificultad, es poder acceder a la información de otras entidades protegiendo la confidencialidad y seguridad de aquellos datos, sin violar ni espiar información delicada.\\\\
+De cierta manera la protección e integridad de los datos de las entidades es muy importante, ya que esta proporcionará información en el análisis de los datos aplicando sus diferentes técnicas, pero en el caso de la investigación utilizará un proceso de minería de datos o datamining, pero sin importar el origen o la fuente de la información, esto con el fin de analizar estos datos frente a cualquier caso especifico presentado.De esta manera se logra garantizar la confidencialidad de los datos en el momento de la exposición a personas o entidades ajenas del proceso correspondiente.Para este caso tanto la minería como la seguridad de los datos es necesario encontrar una solución tecnológica como lógica y física para poder realizar un análisis de información protegiendo los datos confidenciales de manera eficiente.\\\\
+En la investigación a desarrollar las entidades involucradas serán tres instituciones públicas, quienes se encuentran en el área de la salud y medio ambiente de la ciudad de Bogotá. Inicialmente está el Hospital del Sur de Kennedy de Nivel III, el cual se ubica en el sur occidente de la ciudad capitalina, dicho hospital tiene el cubrimiento de cuatro localidades que comprende Fontibón, Bosa, Puente Aranda y Kennedy, que asciende a 2.3 millones de habitantes en el año 2015\footnote{PLAN DE DESARROLLO INSTITUCIONAL 2013-2016 Versión Enero 2013 del Hospital del Sur}, además se vinculará la información del Instituto Nacional de Salud el cual alguna de sus funciones es la vigilancia y seguridad sanitaria en los temas de su competencia en el campo de la salud y finalmente la Secretaría Distrital de Ambiente de Bogotá, a través de la Red de Monitoreo de la Calidad del Aire de Bogotá (RMCAB), para el control y seguimiento de las características meteorológicas y atmosféricas del aire capitalino.\\\\
+En caso que el Hospital del Sur, deseará realizar un proceso de minería de datos de manera pública con otras fuentes de información, el hospital debe garantizar la confidencialidad y calidad de la información, suministrada por los Registro Individual de Prestación (RIPS) que son datos de carácter médico (información de sus pacientes y enfermedades entre otros) para confrontarlo con la información de la RMCAB, de esta manera los resultados de la minería de datos respaldarlo con los casos positivos dados por el SIVIGILA el cual registra los eventos que afecten o puedan afectar la salud de la población Colombiana.\\\\
+Teniendo  en cuenta lo anterior, lo  que se propone  a través de  esta investigación es intentar aplicar una arquitectura computacional (combinando el algoritmo de cifrado AES 128 bits para la seguridad y el proceso de perturbación para la anonimización de los datos) segura a un procesos de minería de datos entre las entidades nombradas, que  permita encontrar los mismos resultados cuando se realiza el mismo proceso de minería. pero con los datos originales y sin protección alguna. Sí al encontrar que los cambios no son significativos en la comparación (prueba del diseño de la arquitectura propuesta) de los resultados de los dos procesos de datamining, se podrá dar garantía a la información.
 
 \section{FORMULACIÓN DEL PROBLEMA}
 
@@ -260,7 +271,7 @@ Para aplicar la arquitectura SMC se planteará el diseño a probar cuando se def
 \item Respecto a la información suministrada por la Red de Monitoreo y Calidad del Aire también se usarán los registros del año 2015 de las catorce (14) estaciones de monitoreo ubicadas en Bogotá, según cuadro 1.1. Dichas estaciones se encuentran distribuidas según la figura 1.1 las cuales tendrán las variables según el cuadro 1.2.
 \end{itemize}
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
 \centering
 \caption{Ubicación de Estaciones de Monitoreo Bogotá.} 
 \includegraphics[scale=0.31]{Ubicacion_RMCAB}
@@ -316,9 +327,21 @@ Hidrocarburos No Metánicos & \\ \hline
 
 \begin{center}
 \chapter{METODOLOGÍA}\label{cap.metodologia}
+% * <homarquez@uan.edu.co> 2016-09-19T19:05:17.583Z:
+%
+% ^.
 \end{center}
 \section{Resumen}
-Para el desarrollo de la investigación y la aplicación de la arquitectura segura computacional, se debía contar con la información o datos a utilizar en el experimento, de esta manera se realizaron las solicitudes, descargar y archivo de la información de las tres fuentes Hospital del Sur, Secretaría de Medio Ambiente de Bogotá y el Instituto Nacional de Salud. Ya obtenidos los datos requeridos, se deberá estructurar el desarrollo de la investigación en dos ramas, como es la minería de datos y la seguridad de los datos, ya que son los pilares de la investigación. Cada rama tendrá sus ramificaciones requeridas para la necesidad de cumplir los objetivos planeados anteriormente.
+Para el desarrollo de la investigación y la aplicación de la arquitectura segura computacional, se debía contar con la información o datos a utilizar en el experimento,estos datos obtenidos de diferentes fuentes de información, de esta manera se realizaron las diferentes solicitudes, descargar y archivo de la datos de las tres fuentes como son Hospital del Sur, Secretaría de Medio Ambiente de Bogotá y el Instituto Nacional de Salud.Luego de obtener los datos requeridos, se deberá estructurar el desarrollo de la investigación en dos ramas, como es la minería de datos o explotación de información enfocados hacia la metodología CRISP-DM (Cross Industry Standard Process for Data Mining)  y la seguridad de los datos, ya que son los pilares de la investigación. Cada rama tendrá sus ramificaciones requeridas para la necesidad de cumplir los objetivos planeados anteriormente.
+\begin{figure}[htb]
+\centering
+\caption{Metodología de Minería de datos.} 
+\includegraphics[scale=0.50]{CRIPS}
+\\Ingresar fuente aqui
+\label{fig:Ubicacion}
+\end{figure}
+
+
 \section{Minería de Datos}
 
 Para el tratamiento de los datos con los que se cuenta y a los que se tiene acceso de manera permanente, es necesario no solo contar con toda si no también tener la capacidad de organizarlos a través de un método de minería de datos agrupados y de manera no jerárquicos con lo que se garantiza una uniformidad en los datos para para proceder a ser analizados por medio de la herramienta Rapidminer,es evidente que la información debe ser protegida, pero también explotada.En la agrupación de los datos se contara con una serie de elementos  con un criterio de cercania ,información de datos no agrupados,y que buscan tener orden  para determinar su prioridad. 
@@ -360,8 +383,10 @@ aleatoria. Bajo ciertas circunstancias, a partir de una gran
 cantidad de datos asociada con el sistema sera posible realizar la mineria de datos en cada uno de ellos y , existe la
 posibilidad de encontrar nuevos aspectos previamente
 desconocidos del modelo. 
-\section{Cifrado de Información}
-Garantizar la confidencialidad a la información suministrada por las fuentes nombradas anteriormente, se abordará a través del algoritmo AES para el cifrado y descifrado de los datos. Se generará una llave privada de tamaño 128, 192 ó 256 bits. Este método evita que la llave privada se catalogue como débil o semi - débil\footnote{PENCHALAIAH PhD, SESHADRI  PhD. Effective Comparison and Evaluation of DES and Rijndael Algorithm (AES), International Journal on Computer Science and Engineering Vol. 02, No. 05, 2010, 1641-1645 Pág. 1642.} dentro de la clasificación de tipos de claves.
+\section{Perturbación / Cifrado de Información}
+Inicialmente en el proceso del cifrado de la información, se aplicará el método de perturbación a los datos tipo médico en la base de datos del Hospital del Sur, el resultado de dicho método será la anonimización de la información para el instante de querer publicar los datos a entes ajenos al hospital.
+
+Para garantizar la confidencialidad a la información suministrada por las fuentes nombradas anteriormente, se abordará a través del algoritmo AES para el cifrado y descifrado de los datos. Se generará una llave privada de tamaño 128, 192 ó 256 bits. Este método evita que la llave privada se catalogue como débil o semi - débil\footnote{PENCHALAIAH PhD, SESHADRI  PhD. Effective Comparison and Evaluation of DES and Rijndael Algorithm (AES), International Journal on Computer Science and Engineering Vol. 02, No. 05, 2010, 1641-1645 Pág. 1642.} dentro de la clasificación de tipos de claves.
     \subsection{Características del Cifrado}
     Al escoger el algoritmo AES, para el cifrado avanzado de la información se compara con otro algoritmo como es DES, el anterior inmediato al AES, donde dicho algoritmo según el tamaño de claves o llaves, genera un número determinado de llaves:
 \begin{itemize}
@@ -374,23 +399,24 @@ De esta manera, la investigación implementará el algoritmo AES de longitud 128
 
 Los datos a cifrar serán solamente los identificadores y seudo identificadores de la base de datos del Hospital del Sur, ya que  se determinará las columnas a proteger. Para finalizar esta fase se debe identificar que datos se van a cifrar con el algoritmo AES de longitud 128 bits.
 
+    \subsection{Perturbación de Datos}
+     Para garantizar la confidencialidad de la información en la base de datos del Hospital del Sur, debemos aplicar el método de anonimización a ciertas columnas o datos (carácter médico o personal), de esta manera se aplicará la técnina de pertubación (micro agregación de datos) a los datos originales. La perturbación se realizará a partir de la distribución normal o gausiana, la cual es la distribución de probabilidad normal de variables aleatorias, donde esta se pueden aproximar a una distribución normal \footnote{ÁNGEL A. Juan, SEDANO Máximo, VILA Alicia.} %<http://www.uoc.edu/in3/emath/docs/Distrib_Normal.pdf> [citado en Septiembre 18 del 2016] Pág. 3 }. 
+     
+     
      \subsection{Aplicación del Cifrado}
-     El algoritmo AES también tiene la ventaja de que se puede implementar de manera cómoda y efectiva en lenguajes de programación de bajo o alto nivel\footnote{ibi p. 1645.}, combinado con las bondades del lenguaje Python, que permite el manejo más eficiente de lectura de archivos y así mismo de los datos. Para el caso de la investigación será más fácil y rápido la implementación de los archivos que contengan los datos de las tres fuentes, aplicando el algoritmo AES 128 bits.
+     El algoritmo AES también tiene la ventaja de que se puede implementar de manera cómoda y efectiva en lenguajes de programación de bajo o alto nivel\footnote{ibi p. 1645.}, combinado con las bondades del lenguaje Python, que permite el manejo más eficiente de lectura de archivos y así mismo de los datos. Para el caso de la investigación será más fácil y rápido la implementación de los archivos que contengan los datos de las tres fuentes, aplicando el algoritmo AES 256 bits.
      
 La finalización de esta fase, será dado por el desarrollo de los scripts necesarios para poder recuperar los datos de los archivos originales y aplicar de manera efectiva el cifrado/descifrado de los datos protegidos, cumpliendo la garantía a la información. 
-     
-	\subsection{Pruebas del Algoritmo AES 128 bits}
-Todo algoritmo de cifrado no puede demostrar su eficiencia de manera matemática, pero sí de sus tres propiedades como es la completitud, difusión y confusión. Para finalizar esta fase se soporta con métricas las tres propiedades anteriores para garantizar la buena implementación del algoritmo. 
 
-FALTA INDICAR QUE PRUEBA SE HARAN !!!
+	 \subsection{Protocolo SSL}
+     Aprovechando las propiedades del protocolo SSL para el envió y recepción de los datos o archivos entre las partes, se aplicará este protocolo ya que garantiza la confidencialidad e integridad de la información. La comunicación de las entidades, por su ubicación geográfica diferente y lejana, se utilizará el Internet como medio de comunicación entre los servidores de las tres entidades involucradas en la investigación; el protocolo SSL permitirá cifrar la información desde el servidor origen para enviar a los otros dos servidores para su debido descifrado. Se debe tener en cuenta que la información enviada implementado el protocolo SSL será de datos o archivos perturbados y cifrados, generando a través del protocolo la llave privada (para cifrar) y pública (descifrada y enviada por certificación digital) .
      
      \section{Comparación Datos Cifrados - Originales}
 La realización de un estudio de comparación es un proceso iterativo. Luego de reunir datos sin procesar, el equipo de comparaciones debería revisarlos cuidadosamente a efectos de asegurarse de que tanto la calidad como la cantidad de la información que se está recopilando cumplan con los requisitos que permiten la ejecución exitosa del proyecto. Este proceso es de vital importancia para el estudio dado que la mala calidad de los datos (definiciones inconsistentes, datos faltantes o valores extremos) puede generar resultados sesgados.
 
+Esta información que se encuentra cifrada será sometida a una perturbación de datos con lo xque se llegara a concluir de manera comparativa que afectación o que cambio provoca aplicar este tipo de metodos y en que nivel importancia podra ser seguro o no la información.
 
-Esta información que se encuentra cifrada será sometida a una perturbación de datos con lo que se llegara a concluir de manera comparativa que afectación o que cambio provoca aplicar este tipo de metodos y en que nivel importancia podra ser seguro o no la información.
 
-Tanto la información original como la que ha sido  modificada o alterada debera contar 
 \begin{center}
  \chapter{MARCO DE REFERENCIA}\label{cap.referencia}
 \end{center}
@@ -415,7 +441,7 @@ Dentro de la arquitectura multi-partita existe gran variedad de técnicas para g
 
 En la actualidad los bancos para los procesos de cifrado y descifrado, están trabajando bajo el estándar de encriptación avanzado AES (Advanced Encriyption Standard), en cual la relación entre el consumo computacional y la seguridad que debe garantizar es muy importante, pero en este caso existe un equilibrio para poder trabajar bajo el estándar nombrado. Se debe tener en cuenta los fundamentos generales de la criptografía, donde existe tres campos de acción en el momento cifrar o proteger cualquier información Cuadro 3.1: 
 
-\begin{table}[htb]
+\begin{table}[ht]
 \centering
 \caption{Conceptos Generales Cifrados.}\footnote{GOMEZ Vieitis Alvaro. Sistema seguros de acceso y transmisión de datos, RA-MA Editorial Pag 15.}
 \begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{9cm} }
@@ -451,10 +477,10 @@ De la clasificación de los sistemas criptográficos, dependerá del orígen o n
 En el momento de definir de la robustez del esquema, se debe definir a través de métricas tres propiedades primordiales en el algoritmo aplicado, ya que una demostración matemática del algoritmo en general es difícil; donde las propiedades son de confusión, difusión y completitud.\footnote{ibi, p. 38} Cuadro. 3.2.\\\\
 Pero es realmente difícil poder aplicar un algoritmo con grados altos de las propiedades nombradas, ya que también se debe garantizar el buen uso de los servicios y recursos computacionales, trabajando en conjunto con la comunicación para envió y recepción de la información cifrada. Teóricamente el único sistema irrompible es el propuesto en 1917 por Gilbert Vernam (Cifrado de Vernam one - time pad) donde con una sola clave que se genera de manera aleatoria y del mismo tamaño del mensaje a cifrar, solamente se dará al impostor la longitud del mensaje, agregando que solo se podrá utilizar una vez dicha clave.
 
-\begin{table}[htb]
+\begin{table}[ht]
 \centering
 \caption{Propiedades de Robustez en el esquema diseñado de cifrado.}\footnote{GOMEZ Vieitis Alvaro. Sistema seguros de acceso y transmisión de datos, RA-MA Editorial Pag 38.}
-\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{9cm} }
+\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{10cm} }
 \hline
 \textbf{\textit{Conceptos:}} & \textbf{\textit{Definición:}} \\ \hline
 \textbf{\textit{Confusión:}} & "...permite ocultar la relación entre el texto claro y el texto cifrado, dificultando el análisis de patrones estadísticos (se consigue generar la "confusión" mediante operaciones de sustitución de símbolos)..." \\ \hline
@@ -466,7 +492,45 @@ Pero es realmente difícil poder aplicar un algoritmo con grados altos de las pr
 \end{table}
 
 Pero desde el punto práctico un sistema criptográfico, se puede medir frente a los ataques de fuerza bruta (se explora todas las posibilidades de claves dentro del rango del sistema criptográfico),  ataques de diccionarios (trabajar con una lista de posibles claves alimentadas de fuentes de información, de la organización dueña de la información) y contra la implementación del algoritmo.\footnote{ibi, p. 39}\\\\
-Ya para la adecuada gestión de claves, ya que se debe definir muy bien los roles de las personas que tengan las claves y los tipos de acceso de la información. Donde la tecnología criptográfica se encuentra sometida a la regulación de la norma International Traffic in Arms Regulations (ITAL)\footnote{ibi, p. 41} ya que se cataloga de peligro por el manejo de información cifrada que los gobiernos no puedan descifrar.  
+Ya para la adecuada gestión de claves, ya que se debe definir muy bien los roles de las personas que tengan las claves y los tipos de acceso de la información. Donde la tecnología criptográfica se encuentra sometida a la regulación de la norma International Traffic in Arms Regulations (ITAL)\footnote{ibi, p. 41} ya que se cataloga de peligro por el manejo de información cifrada que los gobiernos no puedan descifrar.\\  
+Pero no solamente cifrando la información se podrá dar garantía de confidencialidad de los datos, ya que las personas o entidades que obtengan las claves para descifrar, podrán acceder a la información original. De esta manera existen varios procesos o técnicas de anonimización de la información, done es la modificación sistemática de datos, lo cual causará que no sean precisas para revelar o identificar registros individuales puntuales \footnote{Dirección de Regulación, Planeación, Estandarización y Normalización DIRPEN. Lineamientos para
+la Anonimización de microdatos VERSIÓN: 01 29-08-2014 Pág. 19}.
+Algunos de los métodos de anonimización actuales, se basan en la modificación parcial de los valores de los datos (métodos de perturbación) o cambio de posición de los mismos (métodos de reducción de datos), igualmente se relacionarán a continuación según la tabla N. 3.3 y 3.4: 
+
+\begin{table}[ht]
+\centering
+\caption{Técnicas de Anonimización basados en la perturbación de datos.}
+\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{10cm} }
+\hline
+\textbf{\textit{Conceptos:}} & \textbf{\textit{Definición:}} \\ \hline
+\textbf{\textit{Micro - agregación:}} & Es reemplazar un valor observado con la media calculada sobre un pequeño grupo de unidades para agregarlos a los datos a perturbar. \\ \hline
+\textbf{\textit{Agrupación:}} & Los registros contenidos en el conjunto original se agrupan en subconjuntos de cardinalidad; por lo menos k mediante algún criterio de similitud.\\ \hline
+\textbf{\textit{Sustitución:}} & Cada registro del conjunto original es substituido por el registro medio del subconjunto al cual ha sido asignado en la etapa anterior. \\ \hline
+\textbf{\textit{Intercambio aleatorio de datos - PRAM (Post Randomization Method):}} & Es un método de control de la difusión estadística que se puede aplicar a los datos categóricos \\ \hline
+\textbf{\textit{Distorsión de datos por una distribución de probabilidades:}} & Se pretende obtener un conjunto de datos protegido aleatoriamente a partir del conjunto de datos original \\ \hline
+\end{tabular}
+\label{tabla:RobustezPropiedades}
+\\Fuente: \footnote{ibi, p. 19}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Técnicas de Anonimización basados en la reducción de datos.}
+\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{10cm} }
+\hline
+\textbf{\textit{Conceptos:}} & \textbf{\textit{Definición:}} \\ \hline
+\textbf{\textit{Eliminación de variables:}} & La primera aplicación de este método es la eliminación de identificadores directos desde el archivo de datos. \\ \hline
+\textbf{\textit{Eliminación de registros:}} & Esta técnica consiste en eliminar un registro completo, pero esta alterada los resultados estadísticos lo cual se debe evitar aplicar.  \\ \hline
+\textbf{\textit{Recodificación global:}} & Combina categorías para formar nuevas categorías menos específicas. \\ \hline
+\end{tabular}
+\label{tabla:RobustezPropiedades}
+\\Fuente: \footnote{ibi, p. 19}
+\end{table}
+
+Ya definido la manera de cifrar y anonimizar la información, se debe definir el método o técnica de envió de los datos cifrados y perturbados. El protocolo para aplicar en la investigación sera el SSL (Secure Sockets Layer)  el cual provee privacidad y confiabilidad a la comunicación entre dos partes o aplicaciones. El enlace que se genera entre las dos partes es cifrado, donde garantizará la privacidad e integridad de los datos\footnote{ SSL Information and FAQ [En línea] <http://info.ssl.com/article.aspx?id=10241> [citado en 18 de Septiembre del 2016]}
+
+El protocolo SSL esta diseñado para autenticar el emisor y receptor, así mismo salvaguardar la confidencialidad e integridad de la información. Para el envió de los datos entre las partes, se genera una llave privada para cifrar los datos o archivos, pero es conservada por el emisor de esta manera al querer descifrar se aplica una llave pública por el emisor por medio de un certificado\footnote{Utilizar el protocolo SSL <http://www.4d.com/docs/CMS/CMS02064.HTM> [En línea] [citado en 18 de Septiembre del 2016]}.
+
 
 \section{ESTADO DEL ARTE}
 	\subsection{Seguridad}
@@ -574,13 +638,13 @@ Los principios de la protección deberán aplicarse a cualquier información rel
 \section{Minería de Datos}
 		\subsection{Recolección de Datos}
     	\subsection{Implementación de Minería de Datos}
-\section{Cifrado de Información}
-    	\subsection{Características del Cifrado}
-        En esta fase, se determinó que columnas de las tres bases de datos se cifrarán junto a la justificación, ya que se determinó por el tipo de variable para determinar sí es identificador o seudo-identificador, según la tabla 4.1:
- 
-\begin{table}[htb]
+\section{Seguridad de la Información}
+		\subsection{Anonimización de Micro datos Hospital del Sur}
+        En esta fase, se aplicó un proceso de perturbación a determinadas columnas de la base de datos del Hospital del Sur, como método de anonimización de datos confidenciales. La tabla N 4.1, se relacionarán las columnas que se aplico la perturbación y la justificación de su selección. 
+        
+        \begin{table}[htb]
 \centering
-\caption{Identificación y clasificación de las columnas de las tres bases de datos trabajadas para el proceso de cifrado.}
+\caption{Perturbación de los Datos Hospital del Sur RIPS.}
 \begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\arraybackslash}m{3cm} >{\arraybackslash}m{3cm} >{\arraybackslash}m{5cm} }
 \hline
 \textbf{\textit{Columna}} & \textbf{\textit{Identificador}} & \textbf{\textit{Seudo Identificador}} & \textbf{\textit{Justificación}} \\ \hline
@@ -596,19 +660,21 @@ Los principios de la protección deberán aplicarse a cualquier información rel
 \\Ingresar fuente aqui
 \end{table}
         
+    	\subsection{Cifrado de Información}
+        En esta fase, se realizó el cifrado de la información suministrada por las tres entidades,  el proceso llevado fue aplicar el algoritmo AES con una llave de 16 caracteres aleatorios a cada archivo.  
         
+        \subsection{Protocolo SSL}
         
-        
-        
-        \subsection{Aplicación del Cifrado y ¿Protocolos de Seguridad?}
+        \subsection{Descifrado de Información}
+        En esta fase, se realizó el descifrado de cada uno de los tres archivos protegidos, el proceso se llevará a cabo con el descifrado bajo el algoritmo AES con la misma llave de 16 caracteres generará en el proceso de cifrado.
+
 \clearpage
 
 \begin{center}
  \chapter{RESULTADOS}\label{cap.resultados}
 \end{center}
 \section{Interpretación de los Resultados Minería de Datos}
-\section{Pruebas para el Cifrado}
-\section{Comparación Datos Cifrados - Originales}
+\section{Comparación Datos Anonimizados y Cifrados - Originales}
 \clearpage
 
 \begin{center}
@@ -620,7 +686,12 @@ Escribir aqui
 \begin{center}
  \chapter{CONCLUSIONES Y RECOMENDACIONES}\label{cap.conclusiones}
 \end{center}
-Escribir aqui
+
+\section{Conclusiones}
+
+
+\section{Recomendaciones}
+
 \clearpage
 
 \begin{center}
@@ -637,6 +708,10 @@ MORBILIDAD:es la proporción de personas (o animales) que se enferman en un siti
 MORTALIDAD:indica el número de fallecimientos de una población en concreto por cada 1000 habitantes, durante un período de tiempo determinado, este puede ser durante un año. \\\\
 SCRIPTS: son programas, usualmente pequeños o simples, para realizar generalmente tareas muy específicas. Los scripts son un conjunto de instrucciones generalmente almacenadas en un archivo de texto que deben ser interpretados línea a línea en tiempo real para su ejecución.\\\\
 \clearpage
+
+\begin{center}
+ \chapter{REFERENCIAS}\label{cap.referencias}
+\end{center}
 
 \begin{center}
  \chapter{ANEXOS}\label{cap.anexos}
