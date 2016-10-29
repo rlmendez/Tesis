@@ -1188,7 +1188,14 @@ Algunas recomendaciones de la investigación teniendo en cuenta los resultados e
 \begin{enumerate}
 	\item Recuperación de los datos originales por parte de un minero, aplicando procesos estadísticos a información perturbada.
     \item Aplicar otras técnicas de anonimización acordes a variables tipo String, para comprender e interpretar los comportamientos de las mismas para realizar cualquier proceso de minería de datos requeridos.
-    \item AGREGAR LA PROPUESRA DE LA ARQUTECTUA DEL ARTICULO !!!!! PEDIRLO AL ING DAVID URG
+    \item Dentro de algunas técnicas propuestas en la Arquitectura Multipartes Segura, existe la técnica Suma Segura - Secure Sum\footnote{MURAT Kantarcioglu, Xiaodong Lin. Tools for Privacy Preserving Distributed Data Mining, SIGKDD Explorations, 2002}, el cual para esta investigación es una solución viable porque esta arquitectura aplica el principio de la minería de datos distribuida, el cual cada entidad realiza las sumatorias de los registros individuales (anonimización por categorización, cambiando la granuralidad de los datos), después de reaizar este proceso la entidad agrega un valor aleatoria para enviarlo a la siguiente entidad, así mismo la entidad que recibe le agrega otro número a la información enviada para seguir enviando a los siguientes proveedores. Figura 7.1.
+\begin{figure}[h]
+\centering
+\caption{Seguridad de Datos por Suma} 
+\includegraphics[scale=0.47]{arq2}
+\label{fig:Tabla1}
+\\ \textbf{Fuente: }MURAT Kantarcioglu, Xiaodong Lin. Tools for Privacy Preserving Distributed Data Mining, SIGKDD Explorations, 2002.
+\end{figure}
 \end{enumerate}
 \clearpage
 
@@ -1283,7 +1290,6 @@ while x<16:
 	col[x] = col[x][5:filas] #Se elimina los primeros 6 registros ya que son datos vacios o informacion que no es util
 	x = x + 1
 #PERTURBACION DE LAS COLUMNAS POR PERMUTACION
-y = 0
 for y in range(len(columnas_alt)):
 	np.random.shuffle(col[columnas_alt[y]])
 #Escritura de CSV POR PERMUTACION
