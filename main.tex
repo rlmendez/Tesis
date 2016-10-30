@@ -225,7 +225,7 @@ Asimismo, para el modelado de la minería de datos se usará al mismo tiempo la 
 \chapter*{Introducción}
 \addcontentsline{toc}{chapter}{Introducción} % si queremos que aparezca en el índice
 
-La investigación se origino con el propósito de preservar y darle seguridad a los datos de las entidades o de cualquier organización, en el momento de quiera compartir información con otras entidades. En el caso particular los datos experimentales serán suministrados por los Hospitales Distritales., la Secretaría Distrital de Ambiente de Bogotá y el Instituto Nacional de Salud enfocados a las enfermedades respiratorias agudas (IRA). Seguidamente se realiza el planteamiento del tema que será desarrollado en la investigación, de encontrar o no cambios significativos en el momento de aplicar una arquitectura computacional segura (combinación de técnicas y/o tecnologías lógicas computacionales) en la información suministrada por las entidades nombradas. Se pretende poder encontrar una solución tecnológica para poder compartir información privada para realizar análisis de los datos, promoviendo la colaboración entre entidades de compartir sus datos de manera segura y anónima.\\\\
+La investigación se originó con el propósito de preservar y darle seguridad a los datos de las entidades o de cualquier organización, en el momento de quiera compartir información con otras entidades. En el caso particular los datos experimentales serán suministrados por los Hospitales Distritales., la Secretaría Distrital de Ambiente de Bogotá y el Instituto Nacional de Salud enfocados a las enfermedades respiratorias agudas (IRA). Seguidamente se realiza el planteamiento del tema que será desarrollado en la investigación, de encontrar o no cambios significativos en el momento de aplicar una arquitectura computacional segura (combinación de técnicas y/o tecnologías lógicas computacionales) en la información suministrada por las entidades nombradas. Se pretende poder encontrar una solución tecnológica para poder compartir información privada para realizar análisis de los datos, promoviendo la colaboración entre entidades de compartir sus datos de manera segura y anónima.\\\\
 Para el desarrollo de la investigación, se aplicó el diseño metodológico de pre-test, post-test enmarcado en la metodología Cross Industry Standar Process for Data Mining (CRISP-MD) propuesta por la compañia de IBM, definiendo los accesos a los datos de cada entidad como la caracterización de la información, para determinar la mejor manera del manejo de cada proveedor.\\\\Para el proceso de anonimización se aplicó bajo los lineamientos del Ministerio de Salud y Protección Social de Colombia, teniendo en cuenta que se debió preservar la información que se pudo interpretar de los datos anonimizados; además tener en cuenta que la seguridad de información también aplica en la comunicación e intercambio de la información entre las entidades, de esta manera la criptografía y el transporte de información se tuvo presente para el desarrollo de la investigación. Este tipo de investigaciones es muy importante ya en un mundo actual donde los datos se manejan en grandes volúmenes con poco tiempo de espera para resultados seguros, confiables y precisos; algunos de sus aplicaciones o sugerencias de investigación se enfocaron a información médica y de trabajo colaborativo para publicaciones de datos como se pudo evidenciar en el estado del arte.\\\\ Antes de realizar la minería de datos, se desarrollo un script en Python para aplicar dos técnicas de anonimización para la publicación de datos según la normatividad del Ministerio de Salud, DANE y acuerdos firmados por el estado colombiano respecto a la protección de datos personales; este proceso se aplico a la información de los RIPS los cuales se compararon con los originales y relacionados con los datos del SIVIGILA y RMCAB.\\\\Después de anonimizar los datos originales, se interpretaron los resultados de las técnicas de perturbación, cuales dieron resultados esperado de la alteración de los datos pero preservando algunas características estadísticas, resultado muy importante ya que da respaldo a la investigación de que las entidades puedan publicar información para otras y así mismo estar seguras que sus datos están seguros pero aportando información para tomar decisiones en instituciones ajenas a ella.
  \clearpage
 
@@ -245,7 +245,7 @@ Teniendo  en cuenta lo anterior, lo  que se propone  en esta investigación es b
 
 \section{FORMULACIÓN DEL PROBLEMA}
 
-¿ Al aplicar una Arquitectura Computacional Segura a un proceso de minería de datos de información de prueba de las entidades Hospitales Distritales (RIPS), Sistema Nacional de Vigilancia en Salud Pública (SIVIGILA), Red de Monitoreo y calidad del Aire de Bogotá (RMCAB), mediante las técnicas de agrupación y asociación de datos, se identificarán cambios significativos entre los datos protegidos y los datos originales?
+¿ Al aplicar una Arquitectura Computacional Segura a un proceso de minería de datos de información de prueba de las entidades Hospitales Distritales (RIPS), Sistema Nacional de Vigilancia en Salud Pública (SIVIGILA), Red de Monitoreo y calidad del Aire de Bogotá (RMCAB), mediante las técnicas de agrupación de datos, se identificarán cambios significativos entre los datos anonimizados y los datos originales?
 
 \section{JUSTIFICACIÓN}
 El diseño y la aplicación de una arquitectura computacional segura a través de la minería de datos en las entidades de salud, le da garantía a la información (confidencialidad, integridad y disponibilidad) de carácter médica, que debe ser protegida contra eventos o procesos que puedan perjudicar a los pacientes o al hospital por fuga de datos.\\\\
@@ -564,7 +564,7 @@ Los algoritmos supervisados o predictivos predicen el valor de un atributo (Etiq
 
 \begin{figure}[h]
 \centering
-\caption0{Clasificación de las técnicas de minería de datos} 
+\caption{Clasificación de las técnicas de minería de datos} 
 \includegraphics[scale=0.8]{Tabla1}
 \label{fig:Tabla1}
 \\Fuente Propia
@@ -663,7 +663,6 @@ En las características del cifrado AES, para el cifrado avanzado de la informac
     \item 192 bits: aproximadamente 6.2 x 1.057 posibles claves\footnote{ibi p. 1642.}.
     \item 256 bits: aproximadamente 1,1 x 1077 posibles claves\footnote{ibi p. 1642.}.
 \end{itemize}
-
 La investigación implementará el algoritmo AES de longitud 128 bits dentro del protocolo SSL; la comparación con la longitud de DES de 56 bits, donde este se genera 7,2 x 1016 posibles claves, con una diferencia en magnitud de 1021 claves más\footnote{ibi p. 1642.}. Este algoritmo es la última tendencia en el área de seguridad informática en los bancos, entes gubernamentales y de seguridad nacional. Si se quisiera romper la clave generada por el algoritmo DES teóricamente en un segundo, con una máquina de 149 mil millones de dólares, para romper una clave AES, se tardaría 149 billones de años con una longitud de 128 bits\footnote{ibi p. 1642.}. Pero además se tendrá en cuenta las siguientes características:
 \begin{itemize}
 \item \textbf{Autenticación del funcionamiento del Emisor que envía la información:} La firma digital obtenida a través de la clave privada RSA es imposible de falsificar.\footnote{CELINA Drovandi. CRIPTOGRAFÍA
@@ -784,36 +783,27 @@ El Ministerio de Ambiente, Vivienda y Desarrollo Territorial establece con la Re
 \begin{figure}[h]
 \centering
 \caption{Niveles máximos permisibles para contaminantes criterio.} 
-\includegraphics[scale=0.57]{Norma1}
+\includegraphics[scale=0.52]{Norma1}
 \\\textbf{Fuente:} http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=39330
 \label{fig:Ubicacion}
 \end{figure}
-
 \begin{figure}[h]
 \centering
 \caption{Niveles máximos permisibles para contaminantes no convencionales con efectos carcinogénicos.} 
-\includegraphics[scale=0.56]{Norma2}
+\includegraphics[scale=0.4]{Norma2}
 \\\textbf{Fuente:} http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=39330
 \label{fig:Ubicacion}
 \end{figure}
-
-\begin{figure}[htp]
+\begin{figure}[!ht]
 \centering
 \caption{Concentración y tiempo de exposición de los contaminantes para los niveles de prevención, alerta y emergencia.} 
-\includegraphics[scale=0.56]{Norma4}
+\includegraphics[scale=0.4]{Norma4}
 \\\textbf{Fuente:} http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=39330
 \label{fig:Ubicacion}
 \end{figure}
-
-
 \subsection{Legislación Internacional}
-
 Según el principio establecido por la División de Estadísticas de Naciones Unidas, los datos deben ser manejados con confidencialidad y exclusividad.
-Los datos que reúnan los organismos de estadística para la compilación estadística, ya sea que se refieran a personas naturales o jurídicas, deben ser estrictamente confidenciales y utilizarse exclusivamente para fines estadísticos\footnote{ONU United Nations Statistical Commission. Fundamental principles of official statistics. Off Rec Econ Soc Counc. 1994.}.
-
-En el contexto jurídico, la Unión Europea, desde su Directiva 95/46/CE, en el considerando 26, excluye los datos anonimizados del alcance de la legislación sobre protección de los mismos considerando que:
-
-"Los principios de la protección deberán aplicarse a cualquier información relativa a una persona identificada o identificable"; que, para determinar si una persona es identificable, hay que considerar el conjunto de los medios que puedan ser razonablemente utilizados por el responsable del tratamiento o por cualquier otra persona, para identificar a dicha persona; que los principios de la protección no se aplicarán a aquellos datos hechos anónimos de manera tal que ya no sea posible identificar al interesado; que los códigos de conducta con arreglo al artículo 27 pueden constituir un elemento útil para proporcionar indicaciones sobre los medios, gracias a los cuales los datos pueden hacerse anónimos y conservarse de forma tal que impida identificar al interesado\footnote{Unión Europea UE. Europeas C, de la Unión Europea C. Directiva 95/46/CE del Parlamento Europeo y del Consejo de 24 de octubre de 1995 relativa a la protección de las personas físicas en lo que respecta al tratamiento de datos personales ya la libre circulación de estos datos. Agencia de Protección de Datos; 1997.}.
+Los datos que reúnan los organismos de estadística para la compilación estadística, ya sea que se refieran a personas naturales o jurídicas, deben ser estrictamente confidenciales y utilizarse exclusivamente para fines estadísticos\footnote{ONU United Nations Statistical Commission. Fundamental principles of official statistics. Off Rec Econ Soc Counc. 1994.}.\\\\En el contexto jurídico, la Unión Europea, desde su Directiva 95/46/CE, en el considerando 26, excluye los datos anonimizados del alcance de la legislación sobre protección de los mismos considerando que:\\\\"Los principios de la protección deberán aplicarse a cualquier información relativa a una persona identificada o identificable"; que, para determinar si una persona es identificable, hay que considerar el conjunto de los medios que puedan ser razonablemente utilizados por el responsable del tratamiento o por cualquier otra persona, para identificar a dicha persona; que los principios de la protección no se aplicarán a aquellos datos hechos anónimos de manera tal que ya no sea posible identificar al interesado; que los códigos de conducta con arreglo al artículo 27 pueden constituir un elemento útil para proporcionar indicaciones sobre los medios, gracias a los cuales los datos pueden hacerse anónimos y conservarse de forma tal que impida identificar al interesado\footnote{Unión Europea UE. Europeas C, de la Unión Europea C. Directiva 95/46/CE del Parlamento Europeo y del Consejo de 24 de octubre de 1995 relativa a la protección de las personas físicas en lo que respecta al tratamiento de datos personales ya la libre circulación de estos datos. Agencia de Protección de Datos; 1997.}.
 
 \begin{center}
  \chapter{DESARROLLO DEL PROYECTO}\label{cap.desarrollo}
@@ -825,7 +815,7 @@ Los datos recibidos por parte del Registro Individual de Prestación de Servicio
 \begin{figure}[ht]
 \centering
 \caption{Datos RIPS} 
-\includegraphics[scale=0.6]{prepa2}
+\includegraphics[scale=0.5]{prepa2}
 \label{fig:Rips6}
 \\ \textbf{Fuente:} Propia.
 \end{figure}
@@ -854,7 +844,7 @@ http://ambientebogota.gov.co/red-de-calidad-del-aire\#sthash.kwnJsI4H.dpuf.
 \begin{figure}[ht]
 \centering
 \caption{Datos de RMCAB} 
-\includegraphics[scale=0.6]{SeleccionDato}
+\includegraphics[scale=0.53]{SeleccionDato}
 \label{fig:Rips6}
 \\ \textbf{Fuente:} Propia.
 \end{figure}
@@ -928,7 +918,7 @@ La figura 4.8 , refleja la estructura del archivo a leer y perturbar, así mismo
   \begin{figure}[!ht]
 \centering
 \caption{Estructura de los Datos RIPS} 
- \includegraphics[scale=0.46]{Datos_Rips}
+ \includegraphics[scale=0.42]{Datos_Rips}
 \label{fig:Datos_Rips}
 \\ \textbf{Fuente:} Propia.
 \end{figure}    
@@ -969,9 +959,6 @@ Para la línea \textbf{29} a la línea \textbf{32}, se aplica el proceso de perm
 %    \item Ejecución del Protocolo mediante OpenSSL entre los dos computadores: Explicación de los pasos y con captura de pantallas.
 %    \item Verificar los resultados: Explicación de los pasos y con captura de pantallas.
 %\end{enumerate}
-
-\clearpage
-
 \begin{center}
  \chapter{RESULTADOS}\label{cap.resultados}
 \end{center}
@@ -1134,7 +1121,7 @@ De las trece estaciones de monitoreo ubicadas en la ciudad de Bogotá, para una 
 \begin{figure}[h]
 \centering
 \caption{Concentración de Dióxido de Nitrógeno NO2 RMCAB Carvajal (Azul), Kennedy (Verde) y Puente Aranda (Rojo)} 
-\includegraphics[scale=0.45]{RMCABanalisis/AnalisisRMCABNO2}
+\includegraphics[scale=0.4]{RMCABanalisis/AnalisisRMCABNO2}
 \label{fig:Tabla1}
 \\ \textbf{Fuente: }Propia.
 \end{figure}
@@ -1142,7 +1129,7 @@ De las trece estaciones de monitoreo ubicadas en la ciudad de Bogotá, para una 
 \begin{figure}[h]
 \centering
 \caption{Concentración de Monóxido de Carbono CO RMCAB Carvajal (Azul), Kennedy (Verde) y Puente Aranda (Rojo)} 
-\includegraphics[scale=0.45]{RMCABanalisis/AnalisisRMCABCO}
+\includegraphics[scale=0.4]{RMCABanalisis/AnalisisRMCABCO}
 \label{fig:Tabla1}
 \\ \textbf{Fuente: }Propia.
 \end{figure}
@@ -1156,25 +1143,55 @@ Ahora respecto a la información de todas las estaciones de monitoreo y los regi
 \begin{figure}[h]
 \centering
 \caption{Comportamiento de SO2, NO2 y CO Puente Aranda} 
-\includegraphics[scale=0.47]{Componentes/Puente_Aranda_Componentes}
+\includegraphics[scale=0.43]{Componentes/Puente_Aranda_Componentes}
 \label{fig:Tabla1}
 \\ \textbf{Fuente: }Propia.
 \end{figure}
 \begin{figure}[h]
 \centering
-\caption{Comportamiento de SO2, NO2 y C0 Kenedy} 
-\includegraphics[scale=0.47]{Componentes/Kenedy_Componentes}
+\caption{Comportamiento de SO2, NO2 y CO Kenedy} 
+\includegraphics[scale=0.43]{Componentes/Kenedy_Componentes}
 \label{fig:Tabla1}
 \\ \textbf{Fuente: }Propia.
 \end{figure}
 \begin{figure}[h]
 \centering
-\caption{Comportamiento de SO2, NO2 y C0 Carvajal} 
-\includegraphics[scale=0.47]{Componentes/Carvajal_Componentes}
+\caption{Comportamiento de SO2, NO2 y CO Carvajal} 
+\includegraphics[scale=0.43]{Componentes/Carvajal_Componentes}
 \label{fig:Tabla1}
 \\ \textbf{Fuente: }Propia.
 \end{figure}
-
+\textbf{Comparativo de Valores Originales y Anonimizados RIPS correlacionados con el RMCAB:}\\
+Esta sección  se analizará específicamente la información de los registros del RMCAB  para la estación de Puente Aranda por sus niveles altos de contaminación, de esta manera se encuentra los valores de atenciones cuando  los contaminantes alcanzan puntos máximos de emisión y analizar como la perturbación puede afectar estos valores para interpretaciones aproximadas a la realidad.\\\\En la figura 6.10, 6.11 y 6.12,  al realizar el filtro de los 10  primeros valores de los registros del RMCAB por SO2, NO2 y CO correspondientemente, donde se evidencia el resultado del proceso de anonimización en las técnicas de permutación y microagregación, donde  se puede observar  que los valores resultantes son diferentes al compararse con los originales, pero en la comparación entre las técnicas  se evidencia que los valores son cercanos o iguales. Algunos registros donde se puede  puntualizar estos casos son:
+\begin{itemize}
+	\item Figura 6.10 para la fecha de 22/01/2014, los valores de las técnicas son diferentes de los originales, pero  entre las técnicas los valores de las columnas 0 a 1,70 a 74 y 75 o más son iguales siendo el rango 1 a 4 diferente.
+    \item En la misma figura nombrada anteriomente,  para la fecha 06/02/014 las columnas 0 a 1 y 70 a 74 son iguales, pero  los rangos de 1 a 4 y 75 o más son diferentes con una diferencia de dos puntos.
+\begin{figure}[ht]
+\centering
+\caption{Datos Originales y Permutados RIPS relacionados con SO2} 
+\includegraphics[scale=0.45]{Puente_Aranda/SO2_Puente_Aranda}
+\label{fig:Tabla1}
+\\ \textbf{Fuente: }Propia.
+\end{figure}
+    \item En la Figura 6.11 para la fecha 13/03/2014 al compararse los resultados entre las técnicas las columnas 0 a 1 y 1 a 4, la diferencia es de dos puntos  pero son iguales para los otros rangos de etarios.
+    \item Para la figura anterior relacionada, en le fecha 31/03/2014 se encuentra una diferencia de un punto de los valores de las columnas 1 a 4 y 75 o más , pero iguales las otras dos columnas en sus valores.
+\begin{figure}[ht]
+\centering
+\caption{Datos Originales y Permutados RIPS relacionados con NO2} 
+\includegraphics[scale=0.45]{Puente_Aranda/NO2_Puente_Aranda}
+\label{fig:Tabla1}
+\\ \textbf{Fuente: }Propia.
+\end{figure}
+    \item De la misma figura nombrada, en la fecha 20/12/2014 los valores de los etarios 0 a 1 y 1 a 4 son cercanos, la diferencia son decimales pero iguales en las otras dos columnas.
+    \item Ya para la figura 6.12 en la fecha 06/03/2014, la diferencia del 0.5 puntos se ve reflejado en los valores de las columnas de 0 a 1 y 75 o más, pero iguales en los otros dos etarios.
+\begin{figure}[h]
+\centering
+\caption{Datos Originales y Permutados RIPS relacionados con CO} 
+\includegraphics[scale=0.45]{Puente_Aranda/CO_Puente_Aranda}
+\label{fig:Tabla1}
+\\ \textbf{Fuente: }Propia.
+\end{figure}
+\end{itemize}
 
 \begin{center}
  \chapter{CONCLUSIONES Y RECOMENDACIONES}\label{cap.conclusiones}
@@ -1182,13 +1199,13 @@ Ahora respecto a la información de todas las estaciones de monitoreo y los regi
 
 \section{Conclusiones}
 
-Al realizar la minería de datos con la información anonimizada y compararlos con los datos originales, se evidencio que las técnicas de permutación y microagregación realizaron cambios en los datos en su distribución pero preservando o aproximándose las características estadísticas (promedio, valor mínimo, valor máximo y desviación), lo que demuestra que se puede realizar un análisis con la confianza que los datos anonimizados se acercan a la realidad, desafortunadamente no se puedo contar con información de String para comprender su comportamiento al aplicar otra técnica acorde al tipo de variable, siendo una recomendación para investigaciones futuras. Aún así es importante resaltar que la simulación de los procesos de minería de datos fue efectivo asumiendo que los dos proveedores ejecutaron una técnica diferente (permutación o microagregación) para tener resultados próximos a la información original.\\\\  La clasificación implementando el algoritmo clustering permitió agrupar la información en cinco grupos referente a los rangos de edades dados en los RIPS para confrontarse con los tres grupos de los compuestos NO2, SO2 y CO para interpretar las posibles relaciones.\\\\Respecto a los mecanismos implementados para la anonimización fue crucial entender que en las técnicas seleccionadas y aplicadas, la información de tipo númerico se puede evidenciar que los datos se afectaron pero la información, la interpretación puede ser aproximada a la original, variando ya los cambios que se tuvieron en los valores mínimos y desviaciones en el caso de la microagregación, lo que es una buen resultado del código implementando en Python para aplicar la perturbación de los datos. Esta arquitectura o diseño fue apropiada con la información obtenida de las tres fuentes, pero se debe entender que cada día los datos pueden variar y así mismo las necesidades de las entidades,  lo cual de la arquitectura propuesta se puede aplicar el método pero cambiando posiblemente los procesos de minería de datos junto con las técnicas de anonimización.\\\\Concluyendo que los procesos de anonimización de los datos son efectivos en datos númericos, ya que en otros tipos de variables no se pudo evidenciar por su inexistencia dentro de los datos e investigación.
+Al realizar la minería de datos con la información anonimizada y compararlos con los datos originales, se evidencio que las técnicas de permutación y microagregación realizaron cambios en los datos en su distribución pero preservando o aproximándose las características estadísticas (promedio, valor mínimo, valor máximo y desviación), lo que demuestra que se puede realizar un análisis con la confianza que los datos anonimizados se acercan a la realidad, desafortunadamente no se puedo contar con información de String para comprender su comportamiento al aplicar otra técnica acorde al tipo de variable, siendo una recomendación para investigaciones futuras. Aún así es importante resaltar que la simulación de los procesos de minería de datos fue efectivo asumiendo que los dos proveedores ejecutaron una técnica diferente (permutación o microagregación) para tener resultados próximos a la información original.\\\\  La clasificación implementando el algoritmo clustering permitió agrupar la información en cinco grupos referente a los rangos de edades dados en los RIPS para confrontarse con los tres grupos de los compuestos NO2, SO2 y CO para interpretar las posibles relaciones.\\\\Respecto a los mecanismos implementados para la anonimización fue crucial entender que en las técnicas seleccionadas y aplicadas, la información de tipo númerico se puede evidenciar que los datos se afectaron pero la información, la interpretación puede ser aproximada a la original, variando ya los cambios que se tuvieron en los valores mínimos y desviaciones en el caso de la microagregación, lo que es una buen resultado del código implementando en Python para aplicar la perturbación de los datos. Esta arquitectura o diseño fue apropiada con la información obtenida de las tres fuentes, pero se debe entender que cada día los datos pueden variar y así mismo las necesidades de las entidades,  lo cual de la arquitectura propuesta se puede aplicar el método pero cambiando posiblemente los procesos de minería de datos junto con las técnicas de anonimización.\\\\Concluyendo que los procesos de anonimización de los datos son efectivos en datos númericos, ya que en otros tipos de variables no se pudo evidenciar por su inexistencia dentro de los datos e investigación. Además con los resultados dados en las estadísticas y comparación de ejemplos puntuales de los registros, se comprende que en la permutación no altera los valores de los datos, solamente la distribución espacial en las gráficas preservando las estadísticas, este técnica es precisa para las investigaciones donde estos datos (estadística) es importante y no la distribución, en el caso contrario, la microagregación si altera los valores  y la distribución de los datos en la gráfica, ya que se hace un traslado de los puntos pero aproximando sus estadísticas a las originales, esta técnica se acomoda a investigaciones donde la importancia es la distribución (picos globales, locales entre otros) y no la estadística.
 \section{Recomendaciones}
 Algunas recomendaciones de la investigación teniendo en cuenta los resultados e inconvenientes, se sugiere para próximos desarrollos o investigaciones los siguientes temas:
 \begin{enumerate}
 	\item Recuperación de los datos originales por parte de un minero, aplicando procesos estadísticos a información perturbada.
     \item Aplicar otras técnicas de anonimización acordes a variables tipo String, para comprender e interpretar los comportamientos de las mismas para realizar cualquier proceso de minería de datos requeridos.
-    \item Dentro de algunas técnicas propuestas en la Arquitectura Multipartes Segura, existe la técnica Suma Segura - Secure Sum\footnote{MURAT Kantarcioglu, Xiaodong Lin. Tools for Privacy Preserving Distributed Data Mining, SIGKDD Explorations, 2002}, el cual para esta investigación es una solución viable porque esta arquitectura aplica el principio de la minería de datos distribuida, el cual cada entidad realiza las sumatorias de los registros individuales (anonimización por categorización, cambiando la granuralidad de los datos), después de reaizar este proceso la entidad agrega un valor aleatoria para enviarlo a la siguiente entidad, así mismo la entidad que recibe le agrega otro número a la información enviada para seguir enviando a los siguientes proveedores. Figura 7.1.
+    \item Dentro de algunas técnicas propuestas en la Arquitectura Multipartes Segura, existe la técnica Suma Segura - Secure Sum\footnote{MURAT Kantarcioglu, Xiaodong Lin. Tools for Privacy Preserving Distributed Data Mining, SIGKDD Explorations, 2002}, el cual para esta investigación es una solución viable porque esta arquitectura aplica el principio de la minería de datos distribuida, el cual cada entidad realiza las sumatorias de los registros individuales (anonimización por categorización, cambiando la granuralidad de los datos), después de realizar este proceso la entidad agrega un valor aleatoria para enviarlo a la siguiente entidad, así mismo la entidad que recibe le agrega otro número a la información enviada para seguir enviando a los siguientes proveedores. Figura 7.1.
 \begin{figure}[h]
 \centering
 \caption{Seguridad de Datos por Suma} 
@@ -1197,8 +1214,6 @@ Algunas recomendaciones de la investigación teniendo en cuenta los resultados e
 \\ \textbf{Fuente: }MURAT Kantarcioglu, Xiaodong Lin. Tools for Privacy Preserving Distributed Data Mining, SIGKDD Explorations, 2002.
 \end{figure}
 \end{enumerate}
-\clearpage
-
 \begin{center}
  \chapter{GLOSARIO DE TÉRMINOS}\label{cap.glosario}
 \end{center}
@@ -1213,7 +1228,7 @@ INFORMACIÓN SENSIBLE: Es la información que debe ser estrictamente protegida, 
 \\\\
 MORBILIDAD:es la proporción de personas (o animales) que se enferman en un sitio y tiempo determinado.1 Minoritariamente también se usa como sinónimo morbilidad, que etimológicamente es correcto.  \\\\
 MORTALIDAD:indica el número de fallecimientos de una población en concreto por cada 1000 habitantes, durante un período de tiempo determinado, este puede ser durante un año. \\\\
-SCRIPTS: son programas, usualmente pequeños o simples, para realizar generalmente tareas muy específicas. Los scripts son un conjunto de instrucciones generalmente almacenadas en un archivo de texto que deben ser interpretados línea a línea en tiempo real para su ejecución.\\\\
+SCRIPTS: son programas, usualmente pequeños o simples, para realizar generalmente tareas muy específicas. Los scripts son un conjunto de instrucciones generalmente almacenadas en un archivo de texto que deben ser interpretados línea a línea en tiempo real para su ejecución.
 \clearpage
 
 \begin{center}
@@ -1224,7 +1239,7 @@ SCRIPTS: son programas, usualmente pequeños o simples, para realizar generalmen
 	\item PLAN DE DESARROLLO INSTITUCIONAL 2013-2016 Versión Enero 2013 del Hospital del Sur.
 	\item HERRANZ Javier NIN Jordi Secure and efficient anonymization of distributed confidential databases, Springer-Verlag Berlin Heidelberg 2014, Online: 23 April 2014. Int. J. Inf. Secur. (2014) 13:497–512.
 	\item PENCHALAIAH PhD, SESHADRI  PhD. Effective Comparison and Evaluation of DES and Rijndael Algorithm (AES), International Journal on Computer Science and Engineering Vol. 02, No. 05, 2010, 1641-1645.
-    \item CORREGIR ESTE ERROR% ÁNGEL A. Juan, SEDANO Máximo, VILA Alicia.} %<http://www.uoc.edu/in3/emath/docs/Distrib_Normal.pdf> [citado en Septiembre 18 del 2016].
+    \item ÁNGEL A. Juan, SEDANO Máximo, VILA Alicia.<http://www.uoc.edu/in3/emath/docs/Distrib\_Normal.pdf> [citado en Septiembre 18 del 2016].
     \item M. Berry, G. Linoff, “Mastering data mining: the art andscience of customer relationship management“. West Susex:John Wiley \& Sons, 1999.
     \item DAMGARD Ivan, et at. Multiparty Computation from Somewhat Homomorphic Encryption, International Association for Cryptologic Research 2012, R. Safavi-Naini and R. Canetti (Eds.): CRYPTO 2012, LNCS 7417.
     \item GHODOSI Hossein Ghodosi, et at. Multi-party computation with conversion of secret sharing, Springer Science+Business Media, LLC 2011, Des. Codes Cryptogr. (2012) 62:259–272, Online: 10 May 2011.
@@ -1249,8 +1264,6 @@ SEGURIDAD EN ESQUEMAS DE FILE TRANSFER SEGURIDAD EN INTERNET Revista de la Unive
     \item ONU United Nations Statistical Commission. Fundamental principles of official statistics. Off Rec Econ Soc Counc. 1994.
     \item Unión Europea UE. Europeas C, de la Unión Europea C. Directiva 95/46/CE del Parlamento Europeo y del Consejo de 24 de octubre de 1995 relativa a la protección de las personas físicas en lo que respecta al tratamiento de datos personales ya la libre circulación de estos datos. Agencia de Protección de Datos; 1997.
 \end{enumerate}
-
-
 \begin{center}
  \chapter{ANEXOS}\label{cap.anexos}
 \end{center}
